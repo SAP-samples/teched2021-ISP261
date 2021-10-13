@@ -12,14 +12,14 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 The requirements to follow the exercises in this repository are:
 
-### Mandatory
+#### Mandatory
 
 - Get a free trial account on SAP BTP; see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 - Enable Kyma runtime on your newly created SAP BTP account; see this [tutorial](https://developers.sap.com/tutorials/cp-kyma-getting-started.html).
 
-### Recommended
+#### Recommended
 
-For this session, you also need a local development system. Make sure you go through [the prerequisites](./prerequisites.md).
+For this session, you also need a local development system. For a better experience make sure you go through [the prerequisites](./prerequisites.md).
 
 ## Exercises
 
@@ -32,14 +32,6 @@ Provide the exercise content here directly in README.md using [markdown](https:/
 - [Exercise 2 - Second Exercise Description](exercises/ex2/)
   - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
   - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
-
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
-
-**IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder.
 
 ## How to obtain support
 
