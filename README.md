@@ -12,14 +12,12 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 The requirements to follow the exercises in this repository are:
 
-#### Mandatory
-
 - Get a free trial account on SAP BTP; see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 - Enable Kyma runtime on your newly created SAP BTP account; see this [tutorial](https://developers.sap.com/tutorials/cp-kyma-getting-started.html).
 
-#### Recommended
+It is very important that the steps above are completed before the day of the session, they will enable everyone to follow the rest of the exercises.
 
-For this session, you also need a local development system. For a better experience make sure you go through [the prerequisites](./prerequisites.md).
+Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you go through and complete [the prerequisites](./prerequisites.md).
 
 ## Exercises
 
