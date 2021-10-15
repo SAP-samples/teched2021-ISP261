@@ -29,7 +29,7 @@ Provide the exercise content here directly in README.md using [markdown](https:/
   - [Exercise 1.2 - Integrate to the Backoffice](exercises/ex1#exercise-12-sub-exercise-2-description)
   - [Exercise 1.3 - Bind CCv2 to a Kyma namespace](exercises/ex1#exercise-12-sub-exercise-3-description)
   - [Exercise 1.4 - Explore APIs and Events](exercises/ex1#exercise-12-sub-exercise-4-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
+- [Exercise 2 - Exploring Exposed Events and APIs](exercises/ex2/)
 
   - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
   - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
