@@ -23,13 +23,28 @@ Furthermore, while not obligatory, for this session you also need a local develo
 
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-  - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-  - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
+- [Getting Started](exercises/ex0/) ( estimated 15 minutes )
+- [Exercise 1 - Connecting CCv2 to Kyma](exercises/ex1/) ( estimated 15 minutes )
+  - [Exercise 1.1 - Create a System and a Formation in SAP BTP](exercises/ex1#exercise-11-sub-exercise-1-description)
+  - [Exercise 1.2 - Integrate to the Backoffice](exercises/ex1#exercise-12-sub-exercise-2-description)
+  - [Exercise 1.3 - Bind CCv2 to a Kyma namespace](exercises/ex1#exercise-12-sub-exercise-3-description)
+  - [Exercise 1.4 - Explore APIs and Events](exercises/ex1#exercise-12-sub-exercise-4-description)
 - [Exercise 2 - Second Exercise Description](exercises/ex2/)
+
   - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
   - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+
+- [Exercise 2 - Connect CCv2 with Kyma](exercises/exercise-2/README.md)
+  - Exercise 2.1
+  - Exercise 2.2
+  - Exercise 2.3 Bind CCv2 to a Kyma namespace
+  - Exercise 2.4 Explore exposed APIs and Events
+- [Exercise 3 - Deploy/Clone ](exercises/exercise-3/README.md)
+  - Exercise 3.1 XXX
+
+The end result of the exercises is a full implementation of the extension scenario visualized in the slides.
+
+<!-- ![](./exercises/exercise-7/images/comparison-component-final.png) -->
 
 ## How to obtain support
 
