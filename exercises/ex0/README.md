@@ -1,18 +1,24 @@
 # Getting Started
 
-In this section, you will have a look at the extension scenario that will be implemented and get access to the systems that will enable the next steps.
+In this section, you will have a look at the extension scenario that will be implemented and get access to the systems that will enable you for the next steps.
 
 ## Extension Scenario
 
-In this workshop you will be implementing the extension scenario depicted below. JohnDoe Electronics has a feature idea that will greatly increase their customer experience and satisfaction. They would like to add the following feature to their electronics shop, every time a customer completes an order that is greater than $200, JonDoe will send a personalized email to the customer and attach a coupon for their next purchase.
+JohnDoe Electronics is a growing e-commerce business selling electronic appliances to customers all around the world. They are using SAP Commerce Cloud and all of it's features to offer customers the best experience, but as the business grows, they have some ideas
+on how to improve their service and overall satisfaction.
 
-// Extension Picture
+JohnDoe would like to implement two improvements on their system:
 
-In the upcoming exercises, you will be implementing this scenario using the Kyma runtime for extending CCv2.
+1. Store all of their orders in a highly-available and peformant cache like Redis for future real-time analysis like anti-spam etc.
+2. Every time a customer completes an order that is greater than $200, JonDoe wants to send a personalized thank-you email to the customer and ask on their satisfaction levels.
+
+In the upcoming exercises, you will be implementing these scenarios using the Kyma runtime for extending CCv2.
+
+![scenario](./images/scenario.png)
 
 ## Prepare the environment
 
-In order to implement the scenario above, you will have to get access to the following systems:
+Before getting started with implementing the scenarios you will have to get access to the following systems:
 
 1. A CCv2 tenant
 2. A SAP BTP, Kyma runtime free trial
@@ -21,7 +27,7 @@ In order to facilitate the live session, the CCv2 tenants will be provided accor
 
 ## Explore the systems
 
-Finally, before you start implementing the scenario, it's helpful to have a quick look and refresher at the main dashboards you'll be using in the following exercises.
+Finally, it's helpful to have a quick look and refresh the main dashboards you'll be using in the following exercises, namely:
 
 1. CCv2 Backoffice
 2. CCv2 Storefront
@@ -30,5 +36,5 @@ Finally, before you start implementing the scenario, it's helpful to have a quic
 
 ## Summary
 
-Congratulations, now you have understood the extension scenario and taken the first steps towards implementing it.
+Congratulations, now you have understood the extension scenarios and provisioned the environment needed to implement everything.
 Continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)

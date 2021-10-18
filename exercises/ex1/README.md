@@ -62,6 +62,6 @@ Now that the pairing process is completed, you can check if everything has compl
 
 ## Summary
 
-Congratulations, you now have a working CCv2<->Kyma connection and are ready to move into the next steps.
+Congratulations, you now have a working CCv2<->Kyma connection and are ready to move into the next exercise.
 
 Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
