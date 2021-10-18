@@ -36,4 +36,4 @@ Finally, it's helpful to have a quick look and refresh the main dashboards you'l
 ## Summary
 
 Congratulations, now you have understood the extension scenarios and provisioned the environment needed to implement everything.
-Continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)
+Continue to - [Exercise 1 - Connecting CCv2 to Kyma](../ex1/README.md)

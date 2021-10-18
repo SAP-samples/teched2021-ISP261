@@ -69,4 +69,4 @@ In the dev namespace, choose Service Management > Instances. This view will list
 
 You've now created service instances for Events and OCC APIs and you are ready to start implementing the extension scenarios.
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Continue to - [Exercise 3 - Excercise 3](../ex3/README.md)
