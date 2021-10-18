@@ -1,4 +1,4 @@
-# Exercise 1 - Exercise 1 Description
+# Exercise 1 - Connect Kyma to CCv2
 
 In this exercise, we will create a connection between CCv2 and SAP BTP, Kyma runtime. This way, we can start subscribing to events and consuming APIs coming from CCv2.
 

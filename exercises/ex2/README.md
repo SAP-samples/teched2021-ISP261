@@ -1,42 +1,72 @@
-# Exercise 2 - Exercise 2 Description
+# Exercise 2 - Explore exposed APIs and Events
 
-In this exercise, we will create...
+In this second exercise, you will create go through the events and APIs exposed from the connected CCv2 tenant and create the necessary steps to start using them.
 
-## Exercise 2.1 Sub Exercise 1 Description
+## Exercise 2.1 Bind CCv2 to a namespace
 
-After completing these steps you will have created...
+As a prerequisite to start using the exposed services, you will bind the Commerce Mock application to the default namespace. This will allow the APIs and Events of CCv2 to be used within the namespace.
 
-1. Click here.
-<br>![](/exercises/ex2/images/02_01_0010.png)
+1. In the Kyma home workspace, choose Integration > Applications/Systems.
+2. Choose the mp-commerce-mock application by clicking on the name value shown in the list.
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello ABAP World! | ). 
-```
+![Select Application](./images/1.png)
 
+3. Choose the option Create Binding.
 
+![Create Binding](./images/2.png)
 
-## Exercise 2.2 Sub Exercise 2 Description
+4. In the Namespace select list choose the option `default` and then choose Create.
 
-After completing these steps you will have...
+![Create Binding](./images/3.png)
 
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc = 0.
-    response->set_status( i_code = 200
-                     i_reason = 'Everything is fine').
-    RETURN.
-  ENDIF.
+5. You should now see the list of Events/APIs from CCv2 that we can make use in our applications.
 
-```
+![Events and Services](./images/4.png)
 
-2.	Click here.
-<br>![](/exercises/ex2/images/02_02_0010.png)
+## Exercise 2.2 Create the Events service instance
+
+To implement the extension scenarios the first thing we need are subscriptions to OrderCreated events. In this step you will subscribe to the Events service exposed from CCv2.
+
+1. In the Kyma home workspace, choose Namespace and select the `default` namespace.
+
+![Select Namespace](./images/5.png)
+
+2. Within the dev namespace, choose Service Management > Catalog.
+
+![Select Namespace](./images/6.png)
+
+3. Choose the tile first Tile that indicates the CCv2 application. There you can view the Service Class Plans of the application.
+
+![Select Namespace](./images/7.png)
+
+1. Choose the Service Class Plan for CC Events v1. Choose Add and then Create to create a Service Instance.
+
+![Select Namespace](./images/8.png)
+
+You will then be landed in the newly created service instance, now ready to use.
+
+## Exercise 2.3 Create the API service instance
+
+You also need a CCv2 API that allows you to get additional order details. In this step you will subscribe to the OCC API service exposed from CCv2 that gives you access to those endpoints.
+
+1. Following the same steps as the exercise above, choose Service Management > Catalog > CC OCC Commerce Webservices v2.
+
+![Select Namespace](./images/10.png)
+
+2. Choose Add and then Create to create a Service Instance.
+
+![Select Namespace](./images/9.png)
+
+## Exercise 2.4 View the Service Instances
+
+In this step you will view the Events and the OCC Webservices service instances created in the previous two steps.
+
+In the dev namespace, choose Service Management > Instances. This view will list the service instances existing in the namespace.
+
+![Select Namespace](./images/11.png)
 
 ## Summary
 
-You've now ...
+You've now created service instances for Events and OCC APIs and you are ready to start implementing the extension scenarios.
 
 Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
