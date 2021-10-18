@@ -32,7 +32,7 @@ In this step, you will create a Formation. A Formation is used to connect one or
 
 ![Formation Details](./images/5-formation-details.png)
 
-## Exercise 1.3 Pair an application ( CCv2 )
+## Exercise 1.3 Pair an application
 
 The pairing process will establish a trust between the CCv2 application and in this case the SAP Kyma runtime. Once the pairing is complete, the registration of APIs and business events can be performed. This process allow developers to utilize the APIs and business events with the authentication aspects handled automatically.
 

@@ -33,15 +33,15 @@ To implement the extension scenarios the first thing we need are subscriptions t
 
 2. Within the dev namespace, choose Service Management > Catalog.
 
-![Select Namespace](./images/6.png)
+![Select catalog](./images/6.png)
 
 3. Choose the tile first Tile that indicates the CCv2 application. There you can view the Service Class Plans of the application.
 
-![Select Namespace](./images/7.png)
+![Service tile](./images/7.png)
 
 1. Choose the Service Class Plan for CC Events v1. Choose Add and then Create to create a Service Instance.
 
-![Select Namespace](./images/8.png)
+![Events](./images/8.png)
 
 You will then be landed in the newly created service instance, now ready to use.
 
@@ -51,11 +51,11 @@ You also need a CCv2 API that allows you to get additional order details. In thi
 
 1. Following the same steps as the exercise above, choose Service Management > Catalog > CC OCC Commerce Webservices v2.
 
-![Select Namespace](./images/10.png)
+![API service tile](./images/10.png)
 
 2. Choose Add and then Create to create a Service Instance.
 
-![Select Namespace](./images/9.png)
+![Create API service](./images/9.png)
 
 ## Exercise 2.4 View the Service Instances
 
@@ -63,7 +63,7 @@ In this step you will view the Events and the OCC Webservices service instances 
 
 In the dev namespace, choose Service Management > Instances. This view will list the service instances existing in the namespace.
 
-![Select Namespace](./images/11.png)
+![View instances](./images/11.png)
 
 ## Summary
 
