@@ -179,9 +179,19 @@ We will be looking for this greeting when we trigger an Order Created event from
 
 ![Product Order](./images/21.png)
 
-# Exercise 3.5 - Configure your Function capabilities
+# Exercise 3.5 - Configure your Function resources
 
-.. -> configure replicas and other configurations
+Kyma gives you the opportunity to configure your Function resources and match them accordingly with the expected load of your service. Let's have a look at the options and upscale the deployed Function.
+
+1. In your Function view, go to the `Resources` tab and click the `Edit Configuration` button located on the top-right.
+
+![Product Order](./images/22.png)
+
+2. Set the `Maximum replicas` to 3 and `Build job profile` to M. This will make our Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change.
+
+![Product Order](./images/23.png)
+
+Now the stage is set to continue implementing the extension scenario.
 
 # Exercise 3.6 - Implement the rest of your Function
 
