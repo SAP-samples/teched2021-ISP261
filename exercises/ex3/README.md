@@ -166,11 +166,18 @@ We will be looking for this greeting when we trigger an Order Created event from
 
 3. Place an order on any product of your choice.
 
+![Product Order](./images/17.png)
+![Product Order](./images/18.png)
+![Product Order](./images/19.png)
+![Product Order](./images/20.png)
+
 4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
 
 ![Spartacus Register](./images/16.png)
 
 5. In the Logs you should look for and see a `Hello World` message persisted when the order was created. This confirms the connection is successful.
+
+![Product Order](./images/21.png)
 
 # Exercise 3.5 - Configure your Function capabilities
 
