@@ -6,8 +6,9 @@ In this exercise you will implement the first extension scenario as mentioned in
 
 As a first step, you will deploy the Redis cache in your Kyma runtime.
 
-1. Copy the deployment file below and store in a file called `redis-deployment.yaml` in your computer.
-   **_redis-deployment.yaml_**
+1. Copy the deployment file below and store it in a file called `redis-deployment.yaml` in your computer.
+
+**_redis-deployment.yaml_**
 
 ```yaml
 apiVersion: v1
@@ -104,9 +105,44 @@ spec:
 
 # Exercise 3.2 - Deploy your first Function
 
-.. Deploy the empty function configuration
-.. start implementing the cache-order function slowly
-.. -> add configuration ( event listening and API service binding )
+With a Redis cache in place, you can now start to implement the Function that will listen for events from CCv2 and place orders in the cache.
+
+1. Back in the `Overview` page, click on `Deploy new workload > Create Function`
+
+![Check Deployment](./images/5.png)
+
+2. Give your new Function a new name like `cache-orders` and click `Create`
+
+![Name Function](./images/6.png)
+
+3. Wait until the Function turns into a `Running` status.
+
+![Name Function](./images/7.png)
+![Name Function](./images/8.png)
+![Name Function](./images/9.png)
+
+# Exercise 3.3 - Subscribe the Function to Events and APIs
+
+1. In your Function view, go to the `Configuration` tab. There you should see the options to create Service Bindings and Event Subscriptions.
+
+![APIs and Events](./images/10.png)
+
+2. Click the `Create Event Subscription` button and check the box for `order.created` event. Click Save.
+
+![APIs and Events](./images/11.png)
+
+3. If the Event subscription is successful, you should see it under the Event subscription list.
+
+![Events success](./images/12.png)
+
+4. Do the same for Service Bindings, select the already created `CCv2 API Service Instance` and click Create.
+
+![API binding](./images/13.png)
+
+1. If the API Binding is successful, you should see it under the Service Bindings list.
+
+![Events success](./images/14.png)
+
 .. -> configure replicas and other configurations
 .. -> connect to redis, make callback API call, store to redis
 
