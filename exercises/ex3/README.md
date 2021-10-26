@@ -95,11 +95,11 @@ spec:
 
 ![Deploy Workload](./images/2.png)
 
-4. Select or drop the `redis-deployment.yaml` file from step 1 into the box and click `Deploy`.
+1. Select or drop the `redis-deployment.yaml` file into the box and click `Deploy`.
 
 ![Deploy Redis](./images/3.png)
 
-5. Back in the `Overview` page, you should now see 2/2 successful Deployments and Pods. This means the Redis cache was successfully deployed and is ready to be used.
+5. Back in the `Overview` page, you should now see `2/2` successful Deployments and Pods. This means the Redis cache was successfully deployed and is ready to be used.
 
 ![Check Deployment](./images/4.png)
 
@@ -139,14 +139,48 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 ![API binding](./images/13.png)
 
-1. If the API Binding is successful, you should see it under the Service Bindings list.
+5. If the API Binding is successful, you should see it under the Service Bindings list.
 
 ![Events success](./images/14.png)
 
+# Exercise 3.4 - Test out the connection
+
+While the function you deployed does not currently do much it still provides a useful functionality - it lets you know if the Kyma-CCv2 connection is working correctly. Let's test it.
+
+1. Add the following line of code inside your Function and click `Save` on the top-right:
+
+```js
+module.exports = {
+  main: async function (event, context) {
+    console.log("Hello World");
+    return "Hello World";
+  },
+};
+```
+
+We will be looking for this greeting when we trigger an Order Created event from CCv2.
+
+2. Once your new Function is deployed, go to your CCv2 Storefront and create an account.
+
+![Spartacus Register](./images/15.png)
+
+3. Place an order on any product of your choice.
+
+4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
+
+![Spartacus Register](./images/16.png)
+
+5. In the Logs you should look for and see a `Hello World` message persisted when the order was created. This confirms the connection is successful.
+
+# Exercise 3.5 - Configure your Function capabilities
+
 .. -> configure replicas and other configurations
+
+# Exercise 3.6 - Implement the rest of your Function
+
 .. -> connect to redis, make callback API call, store to redis
 
-# Exercise 3.3 - Deploy your API
+# Exercise 3.7 - Implement a small API
 
 .. start implement the other function get-redis slowly
 .. -> connect to redis and read
