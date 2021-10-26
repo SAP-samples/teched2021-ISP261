@@ -166,12 +166,14 @@ We will be looking for this greeting when we trigger an Order Created event from
 
 3. Place an order on any product of your choice.
 
+_Note: You can use any Credit Card number/expiration/cvc combination to place the order i.e: `1234123412341234, 04/24, 123`_
+
 ![Product Order](./images/17.png)
 ![Product Order](./images/18.png)
 ![Product Order](./images/19.png)
 ![Product Order](./images/20.png)
 
-4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
+1. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
 
 ![Spartacus Register](./images/16.png)
 
@@ -189,11 +191,23 @@ Kyma gives you the opportunity to configure your Function resources and match th
 
 2. Set the `Maximum replicas` to 3 and `Build job profile` to M. This will make our Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change.
 
+_Note: You can play around with Kyma pricing based on usage on [this calculator](https://estimator-don4txf2p3.dispatcher.ap1.hana.ondemand.com/index.html)_
+
 ![Product Order](./images/23.png)
 
-Now the stage is set to continue implementing the extension scenario.
+Now, the stage is set to continue implementing the extension scenario.
 
 # Exercise 3.6 - Implement the rest of your Function
+
+The next step to the implementation is connecting the newly created Function with the deployed Redis cache.
+
+1. Import the necessary libraries to implement the scenario
+
+```js
+const axios = require("axios");
+const hredis = require("handy-redis");
+const COMM_GATEWAY_URL = process.env["<REPLACE WITH GATEWAY_URL>"];
+```
 
 .. -> connect to redis, make callback API call, store to redis
 
