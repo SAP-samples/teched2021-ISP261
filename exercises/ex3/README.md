@@ -1,42 +1,126 @@
-# Exercise 2 - Exercise 2 Description
+# Exercise 3 - Implementing Extension Scenario 1: Function
 
-In this exercise, we will create...
+In this exercise you will implement the first extension scenario as mentioned in Getting Started.
 
-## Exercise 2.1 Sub Exercise 1 Description
+# Exercise 3.1 - Deploy the Redis cache
 
-After completing these steps you will have created...
+As a first step, you will deploy the Redis cache in your Kyma runtime.
 
-1. Click here.
-<br>![](/exercises/ex2/images/02_01_0010.png)
+1. Copy the deployment file below and store in a file called `redis-deployment.yaml` in your computer.
+   **_redis-deployment.yaml_**
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello ABAP World! | ). 
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: redis
+  labels:
+    app: redis
+type: Opaque
+data:
+  quoted-redis-password: "ImtQcHBPWnAyaEMi"
+  redis-password: "a1BwcE9acDJoQw=="
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  ports:
+    - name: redis
+      port: 6379
+      targetPort: redis
+  selector:
+    app: redis
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: "bitnami/redis:latest"
+          imagePullPolicy: "Always"
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: quoted-redis-password
+          ports:
+            - name: redis
+              containerPort: 6379
+          livenessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+          resources:
+            requests:
+              memory: 256Mi
 ```
 
+2. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment.
 
+![Select Namespace](./images/1.png)
 
-## Exercise 2.2 Sub Exercise 2 Description
+3. In the `Overview` section, select `Deploy new workload > Upload YAML`
 
-After completing these steps you will have...
+![Deploy Workload](./images/2.png)
 
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc = 0.
-    response->set_status( i_code = 200
-                     i_reason = 'Everything is fine').
-    RETURN.
-  ENDIF.
+4. Select or drop the `redis-deployment.yaml` file from step 1 into the box and click `Deploy`.
 
-```
+![Deploy Redis](./images/3.png)
 
-2.	Click here.
-<br>![](/exercises/ex2/images/02_02_0010.png)
+5. Back in the `Overview` page, you should now see 2/2 successful Deployments and Pods. This means the Redis cache was successfully deployed and is ready to be used.
+
+![Check Deployment](./images/4.png)
+
+# Exercise 3.2 - Deploy your first Function
+
+.. Deploy the empty function configuration
+.. start implementing the cache-order function slowly
+.. -> add configuration ( event listening and API service binding )
+.. -> configure replicas and other configurations
+.. -> connect to redis, make callback API call, store to redis
+
+# Exercise 3.3 - Deploy your API
+
+.. start implement the other function get-redis slowly
+.. -> connect to redis and read
 
 ## Summary
 
-You've now ...
+Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-6---filtering-with-the-icontabbar).
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Continue to [Exercise 4 - Fragment containing a SelectDialog](../ex4/README.md).
+
+## Further Information
+
+- Info
