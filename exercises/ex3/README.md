@@ -95,7 +95,7 @@ spec:
 
 ![Deploy Workload](./images/2.png)
 
-1. Select or drop the `redis-deployment.yaml` file into the box and click `Deploy`.
+4. Select or drop the `redis-deployment.yaml` file into the box and click `Deploy`.
 
 ![Deploy Redis](./images/3.png)
 
@@ -206,7 +206,6 @@ The next step to the implementation is connecting the newly created Function wit
 ```js
 const axios = require("axios");
 const hredis = require("handy-redis");
-const COMM_GATEWAY_URL = process.env["<REPLACE WITH GATEWAY_URL>"];
 ```
 
 .. -> connect to redis, make callback API call, store to redis
