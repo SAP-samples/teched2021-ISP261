@@ -199,16 +199,53 @@ Now, the stage is set to continue implementing the extension scenario.
 
 # Exercise 3.6 - Implement the rest of your Function
 
-The next step to the implementation is connecting the newly created Function with the deployed Redis cache.
+The next step to the implementation is connecting the newly created Function with the deployed Redis cache. Let's start by adding the necessary code.
 
-1. Import the necessary libraries to implement the scenario
+1. The first step is to import the following libraries
 
 ```js
 const axios = require("axios");
 const hredis = require("handy-redis");
 ```
 
-.. -> connect to redis, make callback API call, store to redis
+We will be using `axios` for making an HTTP request back to CCv2 and `hredis` client to connect to the newly deployed Redis cache.
+
+The code should now look like this:
+
+```js
+const axios = require("axios");
+const hredis = require("handy-redis");
+
+module.exports = {
+  main: async function (event, context) {
+    console.log("Hello World");
+    return "Hello World";
+  },
+};
+```
+
+2. The next step is making use of the Redis client to connect to the cache. Add this code right under the imports:
+
+```js
+const client = hredis.createNodeRedisClient({
+  port: process.env["REDIS_PORT"],
+  host: process.env["REDIS_HOST"],
+  password: process.env["REDIS_PASSWORD"],
+});
+```
+
+As you can see, we are making use of three environment variables to connect to the cache. To add these variables click on `Edit Envionment Variables` in the bottom panel and add the following values:
+
+![Edit Env](./images/25.png)
+
+![Edit Env](./images/24.png)
+
+```
+SITE: electronics
+REDIS_PORT: 6379
+REDIS_PASSWORD: kPppOZp2hC
+REDIS_HOST: redis.your_namespace_name.svc.cluster.local
+```
 
 # Exercise 3.7 - Implement a small API
 
@@ -224,3 +261,7 @@ Continue to [Exercise 4 - Fragment containing a SelectDialog](../ex4/README.md).
 ## Further Information
 
 - Info
+
+```
+
+```
