@@ -419,10 +419,113 @@ The logs of your Pod should end with these messages:
 
 ![Logs](./images/29.png)
 
-# Exercise 3.7 - Implement a small API
+If you made it until now without any issues, congratulations!
 
-.. start implement the other function get-redis slowly
-.. -> connect to redis and read
+# Exercise 3.7 - Implement a read-API
+
+The next step of this excercise is to deploy an API that will allow us to read values stored in the Cache from outside Kyma. This will enable any third-party applications to make use of the data stored.
+
+1. Create another Function called `get-orders` from the Kyma dashboard as demonstrated in the last exercise.
+
+![Get orders](./images/30.png)
+
+2. Add the following dependencies to the Function
+
+```json
+ "dependencies": {
+      "redis":  "^3.0.2",
+      "handy-redis": "^2.0.0"
+  }
+```
+
+3. Add the following environment variables
+
+```
+REDIS_PORT: 6379
+REDIS_PASSWORD: kPppOZp2hC
+REDIS_HOST: redis.your_namespace_name.svc.cluster.local
+```
+
+4. Import the Redis libraries and connect to the cache by adding this code:
+
+```js
+const hredis = require("handy-redis");
+
+const client = hredis.createNodeRedisClient({
+  port: process.env["REDIS_PORT"],
+  host: process.env["REDIS_HOST"],
+  password: process.env["REDIS_PASSWORD"],
+});
+```
+
+5. Create a function that will read data from the Cache given an order code as below:
+
+```js
+async function processGetRequest(orderCode) {
+  if (orderCode !== undefined) {
+    console.log("getting order from cache: ", orderCode);
+    return client.hgetall(orderCode);
+  } else {
+    throw "No orderCode received!";
+  }
+}
+```
+
+6. Implement the main function that uses the function written in the earlier step:
+
+```js
+try {
+  const orderCode = event.extensions.request.query.orderCode;
+  let result = await processGetRequest(orderCode);
+  return result ? result : { error: "orderCode was not found" };
+} catch (err) {
+  console.log("an error occurred...", err);
+  event.extensions.response.status(500).json({ error: err });
+}
+```
+
+Now it's time to save the new code and wait for it to redeploy!
+
+7. In order to call this new API from the outside world we need to configure a Kyma CRD called APIRule:
+
+_*get-order.yaml*_
+
+```yaml
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: get-order
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      accessStrategies:
+        - config: {}
+          handler: noop
+      methods:
+        - GET # allow GET requests
+  service:
+    host: get-orders # map them to this host on port 80
+    name: get-orders
+    port: 80
+```
+
+Copy this code and store it in a file called `get-order.yaml`.
+[More information on Kyma APIRule.](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule)
+
+8. Back in the `Overview` section of the Kyma dashboard, select `Deploy new workload > Upload YAML` and drop the `get-order.yaml` file. Click `Deploy`.
+
+![Deploy](./images/31.png)
+
+9. Navigate to the `API Rules` tab and you should see the newly deployed `get-order` API Rule.
+
+10. Click on the small arrow next to the name and adjust the URL to include an order code i.e: `https://get-orders.c-25ddfa3.kyma.shoot.live.k8s-hana.ondemand.com/?orderCode=1234567`
+
+![Deploy](./images/32.png)
+
+11. Check the response! If correctly configured you should now see the details of the order
+
+![Order detals](./images/33.png)
 
 ## Summary
 
