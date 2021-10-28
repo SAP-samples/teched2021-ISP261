@@ -37,7 +37,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 - [Exercise 3 - Implementing Extension Scenario 1: Function](exercises/ex3/)
 
   - [Exercise 3.1 Deploy the Redis cache](exercises/ex3#exercise-31-deploy-the-redis-cache)
-  - [Exercise 3.2 Deploy your first Function](exercisesex3#exercise-32-deploy-your-first-function)
+  - [Exercise 3.2 Deploy your first Function](exercises/ex3#exercise-32-deploy-your-first-function)
   - [Exercise 3.3 Subscribe the Function to Events and APIs](exercises/ex3#exercise-33-subscribe-the-function-to-events-and-apis)
   - [Exercise 3.4 Test out the connection](exercises/ex4#exercise-34-test-out-the-connection)
   - [Exercise 3.5 Configure your Function resources](exercises/ex4#exercise-35-configure-your-function-resources)
