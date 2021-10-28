@@ -421,7 +421,7 @@ The logs of your Pod should end with these messages:
 
 If you made it until now without any issues, congratulations!
 
-# Exercise 3.7 - Implement a read-API
+# Exercise 3.7 - Implement a reading API
 
 The next step of this excercise is to deploy an API that will allow us to read values stored in the Cache from outside Kyma. This will enable any third-party applications to make use of the data stored.
 
@@ -529,14 +529,6 @@ Copy this code and store it in a file called `get-order.yaml`.
 
 ## Summary
 
-Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-6---filtering-with-the-icontabbar).
+Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-3---implementing-extension-scenario-1:-function).
 
 Continue to [Exercise 4 - Fragment containing a SelectDialog](../ex4/README.md).
-
-## Further Information
-
-- Info
-
-```
-
-```
