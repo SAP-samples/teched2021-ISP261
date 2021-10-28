@@ -39,12 +39,13 @@ In this session we will walk you through an overview of how to extend SAP Commer
   - [Exercise 3.1 Deploy the Redis cache](exercises/ex3#exercise-31-deploy-the-redis-cache)
   - [Exercise 3.2 Deploy your first Function](exercises/ex3#exercise-32-deploy-your-first-function)
   - [Exercise 3.3 Subscribe the Function to Events and APIs](exercises/ex3#exercise-33-subscribe-the-function-to-events-and-apis)
-  - [Exercise 3.4 Test out the connection](exercises/ex4#exercise-34-test-out-the-connection)
-  - [Exercise 3.5 Configure your Function resources](exercises/ex4#exercise-35-configure-your-function-resources)
-  - [Exercise 3.6 Implement the rest of your Function](exercises/ex4#exercise-36-implement-the-rest-of-your-function)
-  - [Exercise 3.7 Implement a reading API](exercises/ex4#exercise-37-implement-a-reading-api)
+  - [Exercise 3.4 Test out the connection](exercises/ex3#exercise-34-test-out-the-connection)
+  - [Exercise 3.5 Configure your Function resources](exercises/ex3#exercise-35-configure-your-function-resources)
+  - [Exercise 3.6 Implement the rest of your Function](exercises/ex3#exercise-36-implement-the-rest-of-your-function)
+  - [Exercise 3.7 Implement a reading API](exercises/ex3#exercise-37-implement-a-reading-api)
 
 - [Exercise 4 - Implementing Extension Scenario 2: Microservice](exercises/ex4/)
+
 - [Exercise 5 - Monitoring with Kyma built-in tools](exercises/ex5/)
 
 ## How to obtain support
