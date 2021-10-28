@@ -8,9 +8,9 @@ JohnDoe Electronics is a growing e-commerce business selling electronic applianc
 
 JohnDoe would like to implement the following improvements on their system:
 
-1. Store all of their orders in a highly-available and peformant store like Redis
-2. Implement a customer-facing API that gives users information about their order
-3. Implement an internal API for the analytics team that retrieves common statistics
+1. Store all of their orders in a highly-available and peformant store like Redis - here we will learn how to deploy a Kyma Function and connect with CCv2 Events&APIs
+2. Implement a customer-facing API that gives users information about their order - here we will learn how to use a Kyma Function as an API
+3. Implement an internal API for the analytics team that retrieves common statistics - here we will learn how to deploy an ExpressJS application in Kyma as a microservice
 
 In the upcoming exercises, you will be implementing these scenarios using the Kyma runtime for extending CCv2.
 
