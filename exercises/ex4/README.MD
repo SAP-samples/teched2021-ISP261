@@ -46,24 +46,93 @@ As a first step, you will bootstrap the Expressjs application.
 ```js
 const express = require("express");
 const hredis = require("handy-redis");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+const PORT = 8080;
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/hello-world", async (req, res) => {
   res.status(200).send({ message: "Hello World!" });
 });
 
-app.listen(8080);
+app.listen(PORT, () => {
+  console.log(`Microservice listening at port ${PORT}.`);
+});
 ```
 
-7. Inside a terminal in the project folder run: `node index.js`
-8. Go to your favourite browser and type in the URL bar the following: `http://localhost:8080/hello-world`.
+1. Inside a terminal in the project folder run: `node index.js`
+2. Go to your favourite browser and type in the URL bar the following: `http://localhost:8080/hello-world`.
 
 ![Hello World](./images/3.png)
 
 If you see the same thing in your screen, congratulations! You have successfully bootstrapped our microservice.
+
+9. As a final step, to follow best-practices, add this line to your `package.json` file under `scripts` section:
+
+```js
+  "start": "node index.js",
+```
+
+Now you can easily run the server by following the well-known command `npm run start` in your terminal.
+
+# Exercise 4.2 - Dockerize the microservice
+
+As we will connect our service with the Redis cache located in the Kyma runtime, let's deploy the Express.js server in Kyma before we move on with the rest of the implementation. The first step we have to take is to Dockerize the application.
+
+1. Inside the project folder create two files named `Dockerfile` and `.dockerignore`
+2. Add the following code to the `Dockerfile`
+
+```js
+FROM node:11-alpine
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 8080
+
+CMD ["npm", "run", "start"]
+```
+
+3. Add the following code to the `.dockerignore`
+
+```
+node_modules
+```
+
+This will prevent our local libraries from being copied over to the Docker container. We don't need them as we install these libraries in the container separately. `node_modules` can contain binaries compiled for your host OS, and if it’s different then the container OS, you’ll get errors trying to run your app when you’re bind-mounting it from the host for development.
+
+4. Time to build our first Docker image and push it to Dockerhub. Let's write the deploy script by creating a file named `Makefile` inside your project repo
+
+5. Paste the following code inside your `Makefile` and replace <your-name> with a real value. Make sure you run `docker login` beforehand!
+
+```Makefile
+deploy:
+	docker build -t <your-name>/analytics-microservice -f Dockerfile . && docker push <your-name>/analytics-microservice
+```
+
+_Note: If you don't have a Docker account to push your images don't worry! We will provide an image for the rest of the exercises._
+
+6. Test out the deployment by running `make deploy` on a terminal and watch for the output
+
+![Make output](./images/4.png)
+
+# Exercise 4.3 - Time for Kubernetes
+
+# Exercise 4.4 - Deploy resources into Kyma
+
+# Exercise 4.5 - Implement the rest of the microservice
+
+# Exercise 4.6 - Test out our endpoints
+
+## Summary
+
+Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-3---implementing-extension-scenario-1:-function).
+
+Continue to [Exercise 4 - Fragment containing a SelectDialog](../ex4/README.md).

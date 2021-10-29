@@ -46,7 +46,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 - [Exercise 4 - Implementing Extension Scenario 2: Microservice](exercises/ex4/)
 
-- [Exercise 5 - Monitoring with Kyma built-in tools](exercises/ex5/)
+- [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](exercises/ex5/)
 
 ## How to obtain support
 
