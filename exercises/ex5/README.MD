@@ -52,6 +52,6 @@ Depending on what your particular monitoring interests, you can enter into any o
 
 ## Summary
 
-Hooray! You've successfully completed [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](./README.md)
+Hooray! You've successfully completed the last exercises!
 
 And now it's time to celebrate! By mastering this session you've reached the first level in becoming a Kyma expert.
