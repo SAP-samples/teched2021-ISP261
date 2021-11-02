@@ -269,6 +269,87 @@ Check that all Deployments and Pods are successfully created in the `Overview > 
 
 # Exercise 4.5 - Implement the rest of the microservice
 
+Let's add the rest of the implementation in our `index.js` file.
+
+1. Add the connection to Redis as shown below:
+
+```js
+const client = hredis.createNodeRedisClient({
+  port: process.env["port"],
+  host: process.env["host"],
+  password: process.env["password"],
+});
+```
+
+2. At the end of the file, add the following helper function:
+
+```js
+async function getResultFromCache() {
+  try {
+    const keys = await client.keys("*");
+    let values = [];
+
+    for (let i = 0; i < keys.length; i++) {
+      const value = await client.hgetall(keys[i]);
+      values = [...values, value];
+    }
+
+    return values;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+```
+
+This function will return to us all the product values currently stored in the Redis cache.
+
+4. Add a helper endpoint:
+
+```js
+app.get("/keys", async (req, res) => {
+  const keys = await client.keys("*");
+  res.status(200).send({ keys });
+});
+```
+
+This endpoint will enable us to see which product keys are currently stored in the cache. We will use this endpoint continuously in the next steps!
+
+5. Time to redeploy the microservice with our latest changes.
+
+-> Run `make deploy`
+-> Once successfully deployed, delete the `analytics-microservice` Pod so it gets recreated and pulls the latest image.
+
+![Healthy Resources](./images/7.png)
+
+6. Cleanup the cache
+
+Before we implement some simple analytics endpoints, let's clear out our Redis cache.
+
+Go to `Pods`, click on the three dots on the `redis-xyz-xyz` Pod and `Delete`.
+
+![Cleanup Cache](./images/6.png)
+
+7. Test our new endpoint through the `APIRule`
+
+Go to `API Rules` and find the URL of the `analytics-microservice`.
+
+Open the URL in a new tab and attach the endpoint `/keys` at the end.
+
+The finishing URL and result should be similar to:
+![Keys](./images/8.png)
+
+We see we don't have any keys stored in the Cache because we already cleared it in the previous step.
+
+8. Make two additional orders in CCv2 and check the `/keys` endpoint. **Keep an eye on the prices, we will make some statistics on them!**
+
+Depending on the products you bought, you should see something similar:
+
+![Keys](./images/9.png)
+
+We are now ready to implement some endpoints and play around with the product prices.
+
+9. Let's add three endpoints to our microservice, `/average`, `/highest`, `/lowest`.
+
 # Exercise 4.6 - Test out our endpoints
 
 ## Summary
