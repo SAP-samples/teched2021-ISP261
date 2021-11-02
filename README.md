@@ -19,7 +19,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 - VSCode - download [here](https://code.visualstudio.com/)
 - Node.js - download [here](https://nodejs.org/en/download/)
-- Docker and a Docker hub account- download [here](https://www.docker.com/products/docker-desktop)
+- Docker and a Docker hub account ( Docker ID ) - download [here](https://www.docker.com/products/docker-desktop)
 
 ## Exercises
 
