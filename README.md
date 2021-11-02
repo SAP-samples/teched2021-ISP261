@@ -72,7 +72,7 @@ The content of this repository is targeting the session ISP261 - Extend SAP Comm
 
 ## Disclaimer
 
-In order to follow and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
+In order to facilitate the session and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
 
 ## License
 
