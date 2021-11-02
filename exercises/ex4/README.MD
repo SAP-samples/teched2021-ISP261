@@ -423,7 +423,6 @@ const client = hredis.createNodeRedisClient({
 });
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/average", async (req, res) => {
   try {
