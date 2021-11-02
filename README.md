@@ -15,7 +15,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 - Get a free trial account on SAP BTP; see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 - Enable Kyma runtime on your newly created SAP BTP account; see this [tutorial](https://developers.sap.com/tutorials/cp-kyma-getting-started.html).
 
-😊 Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you have the following apps/libraries installed:
+😊 _Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you have the applications listed below installed._
 
 - VSCode - download [here](https://code.visualstudio.com/)
 - Node.js - download [here](https://nodejs.org/en/download/)
