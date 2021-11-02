@@ -17,9 +17,9 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 😊 Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you have the following apps/libraries installed:
 
-- VSCode - downloadable [here](https://code.visualstudio.com/)
-- Node.js - downloadable [here](https://nodejs.org/en/download/)
-- Docker - downloadable [here](https://www.docker.com/products/docker-desktop) and a Docker hub account
+- VSCode - download [here](https://code.visualstudio.com/)
+- Node.js - download [here](https://nodejs.org/en/download/)
+- Docker and a Docker hub account- download [here](https://www.docker.com/products/docker-desktop)
 
 ## Exercises
 
