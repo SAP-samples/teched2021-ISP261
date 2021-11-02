@@ -46,6 +46,13 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 - [Exercise 4 - Implementing Extension Scenario 2: Microservice](exercises/ex4/)
 
+  - [Exercise 4.1 Bootstrap the project](exercises/ex4#exercise-41-bootstrap-the-project)
+  - [Exercise 4.2 Dockerize the microservice](exercises/ex4#exercise-42-dockerize-the-microservice)
+  - [Exercise 4.3 Time for Kubernetes](exercises/ex4#exercise-43-time-for-kubernetes)
+  - [Exercise 4.4 Deploy resources into Kyma](exercises/ex4#exercise-44-deploy-resources-into-kyma)
+  - [Exercise 4.5 Implement the rest of the microservice](exercises/ex4#exercise-45-implement-the-rest-of-the-microservice)
+  - [Exercise 4.6 Redeploy and test out our endpoints](exercises/ex4#exercise-46-redeploy-and-test-our-endpoints)
+
 - [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](exercises/ex5/)
 
 ## How to obtain support

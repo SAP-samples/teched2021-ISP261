@@ -119,7 +119,7 @@ deploy:
 
 _Note: If you don't have a Docker account to push your images don't worry! We will provide an image for the rest of the exercises._
 
-6. Test out the deployment by running `make deploy` on a terminal and watch for the output
+6. Test out the deployment by running `make deploy` on a terminal inside the folder and watch for the output
 
 ![Make output](./images/4.png)
 
@@ -316,7 +316,7 @@ This endpoint will enable us to see which product keys are currently stored in t
 
 5. Time to redeploy the microservice with our latest changes.
 
--> Run `make deploy`
+-> Run `make deploy` in the project folder
 -> Once successfully deployed, delete the `analytics-microservice` Pod so it gets recreated and pulls the latest image.
 
 ![Healthy Resources](./images/7.png)
@@ -348,12 +348,174 @@ Depending on the products you bought, you should see something similar:
 
 We are now ready to implement some endpoints and play around with the product prices.
 
-9. Let's add three endpoints to our microservice, `/average`, `/highest`, `/lowest`.
+9. Let's add three endpoints to our microservice: `/average` `/highest` `/lowest`.
 
-# Exercise 4.6 - Test out our endpoints
+This function will return to us the average buy price of all ordered products.
+
+```js
+app.get("/average", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+
+    const sum = values
+      .map((value) => parseFloat(value.orderValue))
+      .reduce((acc, cur) => acc + cur, 0);
+
+    res.status(200).send({ message: "Success.", result: sum / values.length });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+```
+
+This function will return to us the highest price from all ordered products.
+
+```js
+app.get("/highest", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+    const last = values.length - 1;
+
+    const highest = values.map((value) => parseFloat(value.orderValue)).sort()[
+      last
+    ];
+
+    res.status(200).send({ message: "Success.", result: highest });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+```
+
+This function will return to us the lowest price from all ordered products.
+
+```js
+app.get("/lowest", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+    const lowest = values
+      .map((value) => parseFloat(value.orderValue))
+      .sort()[0];
+
+    res.status(200).send({ message: "Success.", result: lowest });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+```
+
+10. Compare your code
+
+If you followed through this tutorial, your code should look like this:
+
+```js
+const express = require("express");
+const hredis = require("handy-redis");
+const cors = require("cors");
+
+const app = express();
+const PORT = 8080;
+
+const client = hredis.createNodeRedisClient({
+  port: process.env["port"],
+  host: process.env["host"],
+  password: process.env["password"],
+});
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/average", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+
+    const sum = values
+      .map((value) => parseFloat(value.orderValue))
+      .reduce((acc, cur) => acc + cur, 0);
+
+    res.status(200).send({ message: "Success.", result: sum / values.length });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+
+app.get("/highest", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+    const last = values.length - 1;
+
+    const highest = values.map((value) => parseFloat(value.orderValue)).sort()[
+      last
+    ];
+
+    res.status(200).send({ message: "Success.", result: highest });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+
+app.get("/lowest", async (req, res) => {
+  try {
+    const values = await getResultFromCache();
+    const lowest = values
+      .map((value) => parseFloat(value.orderValue))
+      .sort()[0];
+
+    res.status(200).send({ message: "Success.", result: lowest });
+  } catch (err) {
+    res.status(500).send({ message: "Something went wrong." });
+  }
+});
+
+app.get("/keys", async (req, res) => {
+  const keys = await client.keys("*");
+  res.status(200).send({ keys });
+});
+
+async function getResultFromCache() {
+  try {
+    const keys = await client.keys("*");
+    let values = [];
+
+    for (let i = 0; i < keys.length; i++) {
+      const value = await client.hgetall(keys[i]);
+      values = [...values, value];
+    }
+
+    return values;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+app.listen(PORT, () => {
+  console.log(`Microservice listening at port ${PORT}.`);
+});
+```
+
+# Exercise 4.6 - Redeploy and test our endpoints
+
+1. Redeploy the microservice by following the steps:
+
+-> Run `make deploy` in the project folder
+-> Once successfully deployed, delete the `analytics-microservice` Pod so it gets recreated and pulls the latest image.
+
+2. Test the endpoints
+
+-> `/average` - based on the products you bought, you should see the average price of both.
+
+![Average](./images/10.png)
+
+-> `/highest` - based on the products you bought, you should see the highest price.
+
+![Highest](./images/11.png)
+
+-> `/lowest` - based on the products you bought, you should see the lowest price.
+
+![Lowest](./images/12.png)
 
 ## Summary
 
-Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-3---implementing-extension-scenario-1:-function).
+Hooray! You've successfully completed [Exercise 4 - Implementing Extension Scenario 2: Microservice](#exercise-4---implementing-extension-scenario-2:-microservice).
 
-Continue to [Exercise 4 - Fragment containing a SelectDialog](../ex4/README.md).
+Continue to [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](../ex5/README.md).
