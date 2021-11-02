@@ -70,6 +70,10 @@ Support for the content in this repository is available during the actual time o
 
 The content of this repository is targeting the session ISP261 - Extend SAP Commerce Cloud Through Cloud Native Functions and Services at SAP TechEd 2021. Only sesson speakers will make contributions to this repository. If you wanna enhance the content of this repository feel free to fork it.
 
+## Disclaimer
+
+In order to follow and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
+
 ## License
 
 Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
