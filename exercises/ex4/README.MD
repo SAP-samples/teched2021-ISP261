@@ -125,7 +125,147 @@ _Note: If you don't have a Docker account to push your images don't worry! We wi
 
 # Exercise 4.3 - Time for Kubernetes
 
+Time to deploy! Let's write the necessary K8s configuration to have our application in Kyma.
+
+> Create a new folder called `k8s` in the project folder.
+
+1. Implement the ConfigMap
+
+As a first step we need to inject some environment variables to the microservice. In Kubernetes, there are two resources that enable you to do this: `ConfigMap` and `Secret`. As a best practice, all sensitive environment variables should be injected via a `Secret` and the rest of the variables are to be injected through a `ConfigMap`.
+
+Create a file called `configmap.yaml` and add the following code:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: analytics-microservice
+  labels:
+    app: analytics-microservice
+data:
+  host: redis.development.svc.cluster.local
+  port: "6379"
+  password: kPppOZp2hC
+```
+
+Create a file called `secret.yaml` and add the following code:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: analytics-microservice
+  labels:
+    app: analytics-microservice
+type: Opaque
+data:
+  password: "kPppOZp2hC"
+```
+
+2. Implement the Deployment and Service
+
+Next, let's implement the Deployment that will create the Pods, and the Service that exposes these Pods for use.
+
+Create a file called `deployment.yaml` and add the following code:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-microservice
+  labels:
+    app: analytics-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-microservice
+  template:
+    metadata:
+      labels:
+        app: analytics-microservice
+    spec:
+      containers:
+        - image: ddaja/analytics-microservice:latest # if you managed to deploy your own Docker image, replace this string
+          imagePullPolicy: Always
+          name: analytics-microservice
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: host
+              valueFrom:
+                configMapKeyRef: # get hostname from configMap
+                  name: analytics-microservice
+                  key: host
+            - name: port
+              valueFrom:
+                configMapKeyRef:
+                  name: analytics-microservice
+                  key: port : # get port from configMap
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: analytics-microservice
+                  key: password # get password from Secret
+```
+
+In the same file, add the service implementation as below:
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-microservice
+  labels:
+    app: analytics-microservice
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: analytics-microservice
+```
+
+3. Implement the APIRule
+
+Finally, we need to make this deployed microservice accessible to the outside world. As an Ingress, we will use the Kyma APIRule, so create a file called `apirule.yaml` and add the code below:
+
+```yaml
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: analytics-microservice
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /average|/highest|/lowest|/keys|/delete # endpoints that will be implemented in the microservice
+      accessStrategies:
+        - config: {}
+          handler: noop
+      methods:
+        - GET # all routes are accessible via GET
+  service:
+    host: analytics-microservice # requests will route to analytics-microservice service
+    name: analytics-microservice
+    port: 8080
+```
+
 # Exercise 4.4 - Deploy resources into Kyma
+
+Let's deploy our newly created resources. Go to the `Overview > Deploy new workload > Upload YAML` and deploy the services in the following order:
+
+1. `configmap.yaml`
+2. `secret.yaml`
+3. `deployment.yaml`
+4. `apirule.yaml`
+
+Check that all Deployments and Pods are successfully created in the `Overview > Healthy Resources` section.
+
+![Healthy Resources](./images/5.png)
 
 # Exercise 4.5 - Implement the rest of the microservice
 
