@@ -15,7 +15,11 @@ In this session we will walk you through an overview of how to extend SAP Commer
 - Get a free trial account on SAP BTP; see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 - Enable Kyma runtime on your newly created SAP BTP account; see this [tutorial](https://developers.sap.com/tutorials/cp-kyma-getting-started.html).
 
-😊 Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you go through and complete [the prerequisites](./prerequisites.md).
+😊 Furthermore, while not obligatory, for this session you also need a local development system. You will have a better experience if you have the following apps/libraries installed:
+
+- VSCode - downloadable [here](https://code.visualstudio.com/)
+- Node.js - downloadable [here](https://nodejs.org/en/download/)
+- Docker - downloadable [here](https://www.docker.com/products/docker-desktop) and a Docker hub account
 
 ## Exercises
 
@@ -54,10 +58,17 @@ In this session we will walk you through an overview of how to extend SAP Commer
   - [Exercise 4.6 Redeploy and test out our endpoints](exercises/ex4#exercise-46-redeploy-and-test-our-endpoints)
 
 - [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](exercises/ex5/)
+  - [Exercise 5.1 - Open the monitoring tools](exercises/ex5#exercise-51-open-the-monitoring-tools)
+  - [Exercise 5.2 - Watch logs in Grafana and Loki](exercises/ex5#exercise-52-watch-logs-in-grafana-and-loki)
+  - [Exercise 5.3 - Visualize metrics in Grafana and Prometheus](exercises/ex5#exercise-53-visualize-metrics-in-grafana-and-prometheus)
 
 ## How to obtain support
 
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
+
+## Contributing
+
+The content of this repository is targeting the session ISP261 - Extend SAP Commerce Cloud Through Cloud Native Functions and Services at SAP TechEd 2021. Only sesson speakers will make contributions to this repository. If you wanna enhance the content of this repository feel free to fork it.
 
 ## License
 
