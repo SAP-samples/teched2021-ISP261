@@ -14,11 +14,11 @@ As a first step, you will create a System at the Global account level of your SA
 
 ![System Details](./images/2-give-system-details.png)
 
-3. Copy the Token value, store it somewhere safe and close the window. This value will expire in five minutes and will be needed in a subsequent step.
+3. Copy the `Token` value, store it somewhere safe and close the window. This value will expire in five minutes and will be needed in a subsequent step.
 
 ![Token generated](./images/3-token-generated.png)
 
-**Note**: If the token expires before use, you can obtain a new one by choosing the Display Token option shown next to the entry in the Systems list.
+**Note**: If the token expires before use, you can obtain a new one by choosing the `Display Token` option shown next to the entry in the `Systems` list.
 
 ## Exercise 1.2 Create a Formation
 
@@ -46,7 +46,7 @@ The pairing process will establish bidirectional trust between your CCv2 applica
 
 ## Exercise 1.4 Check connection
 
-Well done! You successfully completed the initial pairing process between CCv2 and Kyma. If everything is running smoothly, you should see the following pages on your own CCv2/Kyma systems.
+Well done! You successfully completed the initial pairing process between CCv2 and Kyma. If everything is running smoothly, you should see the following pages on your own CCv2 Backoffice and BTP systems.
 
 > System - Created Successfully.
 
@@ -62,6 +62,6 @@ Well done! You successfully completed the initial pairing process between CCv2 a
 
 ## Summary
 
-Congratulations, you now have a working CCv2->Kyma connection and are ready to move into the next exercises.
+Congratulations, you now have a working Kyma/CCv2 connection and are ready to move into the next exercises.
 
 Continue to - [Exercise 2 - Exploring Exposed Events and APIs](../ex2/README.md)
