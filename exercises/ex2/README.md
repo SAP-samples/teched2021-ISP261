@@ -31,15 +31,15 @@ For the extension scenarios discussed earlier, you will need to keep track of al
 
 ![Select Namespace](./images/5.png)
 
-2. Within the default namespace, choose `Service Management > Catalog`.
+2. Within the default namespace, choose `Service Management > Catalog`. Choose the tile first Tile that indicates the CCv2 application.
 
 ![Select catalog](./images/6.png)
 
-3. Choose the tile first Tile that indicates the CCv2 application. There you can view the Service Class Plans of the application.
+3. There you can view the Service Class Plans of the application. Choose the Service Class Plan for `CC Events v1`.
 
 ![Service tile](./images/7.png)
 
-4. Choose the Service Class Plan for `CC Events v1`. Click on `Add` and then `Create` to create a Service Instance.
+4. Click on `Add` and then `Create` to create a Service Instance.
 
 ![Events](./images/8.png)
 
@@ -47,7 +47,7 @@ You will then be landed in the newly created service instance, now ready to use.
 
 ## Exercise 2.3 Create the API service instance
 
-For the extension scenarios you also need a CCv2 API that allows you to get additional order details following the event. In this step you will subscribe to the `OCC API` services exposed from CCv2 that gives you access to those endpoints.
+For the extension scenarios you also need a CCv2 API that allows you to get additional order details following an event trigger. In this step you will subscribe to the `OCC API` services exposed from CCv2 that gives you access to those endpoints.
 
 1. Following the same steps as the exercise above, choose `Service Management > Catalog > CC OCC Commerce Webservices v2`.
 
