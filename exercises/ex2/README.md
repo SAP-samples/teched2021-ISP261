@@ -65,7 +65,7 @@ In the default namespace, choose `Service Management > Instances`. This view wil
 
 ![View instances](./images/11.png)
 
-If everything is sucessful, you should see the status of the two service instnaces as `Running`.
+If everything is sucessful, you should see the status of the two service instances as `Running`.
 
 ## Summary
 
