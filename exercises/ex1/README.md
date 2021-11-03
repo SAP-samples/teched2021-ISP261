@@ -40,9 +40,11 @@ The pairing process will establish bidirectional trust between your CCv2 applica
 
 ![Backoffice](./images/6-backoffice.png)
 
-2. Paste the token you copied earlier from the System registration step inside the `Token URL` field and give your connection a name. Click `Register Destination Target` button.
+2. Paste the token you copied earlier from the System registration step inside the `Token URL` field and give your connection a name in `Destination's ID`. Click `Register Destination Target` button.
 
 ![Backoffice](./images/8-backoffice-registration-sub.png)
+
+**Note**: If you are sharing the CCv2 tenant with another session participant, make sure to add your own name in the `Destination's ID` field.
 
 ## Exercise 1.4 Check connection
 
