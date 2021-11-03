@@ -19,7 +19,7 @@ The very first thing you need to do is bind the CCv2 application to the Kyma nam
 
 ![Create Binding](./images/3.png)
 
-1. You should now see the list of Events/APIs exposed from CCv2 that you can start using.
+5. You should now see the list of Events/APIs exposed from CCv2 that you can start using.
 
 ![Events and Services](./images/4.png)
 
