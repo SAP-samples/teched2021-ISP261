@@ -4,7 +4,7 @@ In this second exercise, you will explore the events and APIs exposed from the C
 
 ## Exercise 2.1 Bind CCv2 to a namespace
 
-The very first thing you need to do is bind the Commerce Mock application to the namespace that will contain all your exetnsions. This will allow the APIs and Events of CCv2 to be used within the namespace.
+The very first thing you need to do is bind the CCv2 application to the Kyma namespace that will contain all your extensions. This will allow the APIs and Events of CCv2 to be used within the namespace.
 
 1. In the Kyma home workspace, click on the `Integration > Applications/Systems` menu.
 2. Choose the `mp-your-app-name` application by clicking on the name value shown in the list. It's status should appear as `NOT_SERVING`.
