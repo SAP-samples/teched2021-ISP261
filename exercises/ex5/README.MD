@@ -10,7 +10,7 @@ Before jumping into the dashboards, let's have a quick introduction of Grafana, 
 
 > Grafana is a general purpose dashboard and graph composer. It's focused on providing rich ways to visualize time series metrics, mainly though graphs but supports other ways to visualize data through a pluggable panel architecture. It currently has rich support for for Graphite, InfluxDB and OpenTSDB. But supports other data sources via plugins.
 
-You can read much more on Grafana [here](https://grafana.com/docs/grafana/latest/getting-started/getting-started/).
+You can read more on Grafana [here](https://grafana.com/docs/grafana/latest/getting-started/getting-started/).
 
 > Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. It is designed to be very cost effective and easy to operate. It does not index the contents of the logs, but rather a set of labels for each log stream.
 
@@ -20,15 +20,21 @@ You can read more on Loki [here](https://grafana.com/docs/loki/latest/).
 
 You can read more on Prometheus [here](https://prometheus.io/docs/prometheus/latest/getting_started/).
 
-**In order to start visualizing dashboards and logs in Grafana, go under the `Diagnostics` section and you will find `Logs` and `Metrics`.**
+---
+
+**In order to start visualizing dashboards and logs in Grafana, go under the `Diagnostics` section of your Kyma dashboard and you will find `Logs` and `Metrics`.**
 
 ![Monitoring tools](./images/1.png)
 
 # Exercise 5.2 - Watch logs in Grafana and Loki
 
-Clicking on the `Logs` tab will send you inside the Grafana Loki dashboard. In a nutshell, Loki is your go-to point to monitoring the Logs coming from any of your deployed services in Kyma.
+Clicking on the `Logs` tab will send you inside the Grafana Loki dashboard.
 
-As an example depicted below, you can find the logs coming from `cache-order` Function you deployed in the previous exercises. This is a obviously a better alternative to peeking into Pods to see logs - it offers a better visual experience and the opportunity to filter/query according to your requirements.
+> In a nutshell, Loki is your go-to application for monitoring the Logs coming from any of your deployed services in Kyma.
+
+Using Loki is obviously a better alternative than peeking into Pods to see output - it offers a better visual experience and the opportunity to filter/query according to your requirements.
+
+As an example depicted below, you can find the logs coming from the `cache-order` Function you deployed in the previous exercises.
 
 ![Monitoring tools](./images/6.png)
 
@@ -44,7 +50,7 @@ From there, you can click on the Search icon on the top-left and see a list of d
 
 ![Grafana dashboards](./images/3.png)
 
-Depending on what your particular monitoring interests, you can enter into any of the dashboards listed. As an example depicted below, we go inside two dashboards, namely `Kyma/Function` and `Kyma/Eventing/Delivery` giving us details on Functions execution and CCv2->Kyma events respectively.
+Depending on what your particular monitoring interests, you can enter into any of the dashboards listed. As an example, two dashboards are attached below, namely `Kyma/Function` and `Kyma/Eventing/Delivery` giving details on Functions execution metrics and CCv2/Kyma events respectively.
 
 ![Kyma/Function](./images/4.png)
 
@@ -52,6 +58,6 @@ Depending on what your particular monitoring interests, you can enter into any o
 
 ## Summary
 
-Hooray! You've successfully completed the last exercises!
+🥳 Hooray! You've successfully completed the last exercises!
 
-And now it's time to celebrate! By mastering this session you've reached the first level in becoming a Kyma expert.
+🎉 And now it's time to celebrate! By mastering this workshop you've started your journey in becoming a Kyma expert.
