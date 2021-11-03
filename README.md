@@ -38,7 +38,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
   - [Exercise 2.3 Create the API service instance](exercises/ex2#exercise-23-create-the-api-service-instance)
   - [Exercise 2.4 View the Service Instances](exercises/ex2#exercise-24-view-the-service-instances)
 
-- [Exercise 3 - Implementing Extension Scenario 1: Function](exercises/ex3/)
+- [Exercise 3 - Implementing Extension Scenario 1: Functions](exercises/ex3/)
 
   - [Exercise 3.1 Deploy the Redis cache](exercises/ex3#exercise-31-deploy-the-redis-cache)
   - [Exercise 3.2 Deploy your first Function](exercises/ex3#exercise-32-deploy-your-first-function)

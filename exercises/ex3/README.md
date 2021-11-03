@@ -1,4 +1,4 @@
-# Exercise 3 - Implementing Extension Scenario 1: Function
+# Exercise 3 - Implementing Extension Scenario 1: Functions
 
 In this exercise you will implement the first extension scenario as mentioned in Getting Started.
 

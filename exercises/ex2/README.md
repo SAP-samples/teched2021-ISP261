@@ -71,4 +71,4 @@ If everything is sucessful, you should see the status of the two service instnac
 
 Great job! You've now created service instances for Events and OCC APIs and you are ready to start implementing the extension scenarios.
 
-Continue to - [Exercise 3 - Excercise 3](../ex3/README.md)
+Continue to - [Exercise 3 - Implementing Extension Scenario 1: Functions](../ex3/README.md)
