@@ -23,6 +23,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 ## Exercises
 
+- [Welcome to ISP261](./prerequisites-isp261.pdf)
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Connecting CCv2 to Kyma](exercises/ex1/)
 
@@ -62,6 +63,10 @@ In this session we will walk you through an overview of how to extend SAP Commer
   - [Exercise 5.2 - Watch logs in Grafana and Loki](exercises/ex5#exercise-52-watch-logs-in-grafana-and-loki)
   - [Exercise 5.3 - Visualize metrics in Grafana and Prometheus](exercises/ex5#exercise-53-visualize-metrics-in-grafana-and-prometheus)
 
+## Disclaimer
+
+In order to facilitate the session and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
+
 ## How to obtain support
 
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
@@ -70,9 +75,7 @@ Support for the content in this repository is available during the actual time o
 
 The content of this repository is targeting the session ISP261 - Extend SAP Commerce Cloud Through Cloud Native Functions and Services at SAP TechEd 2021. Only sesson speakers will make contributions to this repository. If you wanna enhance the content of this repository feel free to fork it.
 
-## Disclaimer
-
-In order to facilitate the session and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
+## Futher Reading
 
 ## License
 
