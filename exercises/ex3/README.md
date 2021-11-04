@@ -1,6 +1,6 @@
 # Exercise 3 - Implementing Extension Scenario 1: Functions
 
-In this exercise you will implement the first extension scenario for JonDoe electronics, namely a Function for caching orders and a Function for retrieving orders.
+In this exercise you will implement the first extension scenario for JonDoe electronics, more specifically, a Function for caching orders and a Function for retrieving orders.
 
 # Exercise 3.1 - Deploy a Redis Cache
 
@@ -87,11 +87,9 @@ spec:
               memory: 256Mi
 ```
 
-This code contains the necessary K8s resources like Deployment, Service and Secret to make Redis available in our Kyma runtime.
+This code contains the necessary K8s resources like Deployment, Service and Secret to make Redis available in our Kyma runtime. You can read more on these Kubernetes resources [here](https://kubernetes.io/docs/concepts/).
 
-You can read more on the main Kubernetes concepts [here](https://kubernetes.io/docs/concepts/).
-
-2. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment.
+1. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment. Look for `1 Bound Application` keyword.
 
 ![Select Namespace](./images/1.png)
 
@@ -111,7 +109,7 @@ You can also see all the deployed resources under the `Services` `Pods` `Deploym
 
 # Exercise 3.2 - Deploy Your First Function
 
-With a Redis cache in place, you can now start to implement the Function that will listen for events from CCv2 and place orders in the cache.
+With a Redis cache in place, you can now start to implement the Function that will listen for events from CCv2 and store those orders in the cache.
 
 1. Back in the `Overview` page, click on `Deploy new workload > Create Function`
 
@@ -135,7 +133,7 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 ![Name Function](./images/9.png)
 
-In the Source Code you can now probably only see a skeleton main function. This function is very important as it will be called with any event that we have subscribed to from CCv2!
+In the Source Code you can now probably only a main function containing some skeleton code. This function is very important as it will be triggered by any event that we have subscribed to from CCv2!
 
 # Exercise 3.3 - Subscribe The Function To Events And Bind To APIs
 
@@ -143,7 +141,7 @@ In the Source Code you can now probably only see a skeleton main function. This 
 
 ![APIs and Events](./images/10.png)
 
-2. Click the `Create Event Subscription` button and check the box for `order.created` event. Click Save.
+2. Click the `Create Event Subscription` button and check the box for `order.created` event. Click `Save`.
 
 ![APIs and Events](./images/11.png)
 
@@ -151,7 +149,7 @@ In the Source Code you can now probably only see a skeleton main function. This 
 
 ![Events success](./images/12.png)
 
-4. Doing the same for Service Bindings, select the already created `CCv2 API Service Instance` and click Create.
+4. Doing the same for Service Bindings, select the already created `CCv2 API Service Instance` and click `Create`.
 
 ![API binding](./images/13.png)
 
@@ -176,7 +174,7 @@ module.exports = {
 };
 ```
 
-We will be looking for this `Hello World` greeting when we trigger an Order Created event from CCv2.
+You will be looking for this `Hello World` greeting in the logs when we trigger an Order Created event from CCv2.
 
 2. Once your new Function is deployed (remember: we're looking for a `Running` status) go to your CCv2 Storefront and create an account.
 
@@ -200,7 +198,7 @@ We will be looking for this `Hello World` greeting when we trigger an Order Crea
 
 ![Product Order](./images/20.png)
 
-4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
+4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered an event when the order was created.
 
 ![Spartacus Register](./images/16.png)
 
@@ -212,7 +210,7 @@ _Note: In the last exercise you will learn another way to trace logs without pee
 
 # Exercise 3.5 - Configure your Function resources
 
-Kyma gives you the opportunity to configure your Function resources according to the expected load of your service. Let's have a look at the options provided to us and scale the deployed Function.
+Kyma gives you the opportunity to configure your Function resources according to the expected load of your service. Let's have a look at the options provided and scale the deployed Function.
 
 1. In your Function view, go to the `Resources` tab and click the `Edit Configuration` button located on the top-right.
 
@@ -230,7 +228,7 @@ Now, the stage is set to continue implementing the extension scenario.
 
 The next step in our implementation is connecting the newly created Function with the deployed Redis cache. Let's start by adding the necessary code.
 
-1. The first step is adding the necessary dependencies to your Function. In the `Code` tab, you can find the `Dependencies` submenu. Add the following dependencies:
+1. Let's begin by adding the necessary dependencies to your Function. In the `Code` tab, you can find the `Dependencies` submenu. Add the following dependencies and click `Save`:
 
 ```json
 {
@@ -280,11 +278,11 @@ const client = hredis.createNodeRedisClient({
 });
 ```
 
-As you can see, we are making use of three environment variables to connect to the cache. But these environment variables are not magical, they come from somewhere, and that somewhere is us. To add these variables click on `Edit Envionment Variables` in the bottom panel.
+As you can see, the code is making use of three environment variables to connect to the cache. Unfortunately, these environment variables are not magical, they are injected from someone, and that someone is you. To add these variables, click on `Edit Envionment Variables` in the bottom panel.
 
 ![Edit Env](./images/25.png)
 
-Finally, add these values as environment variables:
+Add these values as environment variables:
 
 ```
 SITE: electronics
@@ -330,9 +328,9 @@ Save the code and wait for it to be in a `Running` state again before testing.
 
 ![Success](./images/27.png)
 
-6. Perfect! Time to step it up. Next in our implementation is making a callback HTTP request to the CCv2 tenant. You can get the URL of the CCv2 tenant through an environment variable that is injected in our code from the `CC OCC Commerce Webservices v2` service binding you completed earlier.
+6. Perfect! Time to take it up a notch. Let's improve our implementation by making a callback HTTP request to the CCv2 tenant and get some extra details on your order. You can get the URL of the CCv2 tenant through an environment variable that is injected in our code from the `CC OCC Commerce Webservices v2` service binding.
 
-Copy the full key name of the environment variable ending with `GATEWAY_URL` (Careful: you need the name, NOT the value).
+Copy the full key name of the environment variable ending with `GATEWAY_URL` (careful: you need the name, NOT the value).
 
 ![Get CCv2 URL](./images/28.png)
 
@@ -444,7 +442,7 @@ The logs of your Pod should end with these messages:
 
 # Exercise 3.7 - Implement a Reading API
 
-Woah, that was intense! But this exercise is not over yet. The next step and final step is to deploy an API that will allow us to read values stored in the Cache from customers via a public API.
+Woah, that was intense! But this exercise is not over yet. The next and final step is to deploy a Function that will allow us to read values stored in the Cache from customers via a public API.
 
 1. Create another Function called `get-orders` from the Kyma dashboard as demonstrated in the last exercise.
 
@@ -479,7 +477,7 @@ const client = hredis.createNodeRedisClient({
 });
 ```
 
-5. Great! The next step is to create a function that will read data from the Cache whenever it is given an order code:
+5. Great! The next step is to create a helper function that will read data from the Cache whenever it is given an order code:
 
 ```js
 async function processGetRequest(orderCode) {
@@ -507,7 +505,7 @@ try {
 
 Now it's time to save the new code and wait for it to redeploy!
 
-7. In order to access and communicate with the new API from the outside world we need to configure a Kyma CRD called APIRule:
+7. In order to access and communicate with the new API from the outside world we need to configure a Kyma CRD called APIRule (more information on APIRule [here](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule)):
 
 _*get-order.yaml*_
 
@@ -533,15 +531,15 @@ spec:
 
 Copy this code and store it in a file called `get-order.yaml`.
 
-[More information on Kyma APIRule.](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule)
-
 8. Back in the `Overview` section of the Kyma dashboard, select `Deploy new workload > Upload YAML` and drop the `get-order.yaml` file. Click `Deploy`.
 
 ![Deploy](./images/31.png)
 
 9. Navigate to the `API Rules` tab and you should see the newly deployed `get-order` API Rule.
 
-10. Click on the small arrow next to the name and adjust the URL to include an order code i.e: `https://get-orders.c-25ddfa3.kyma.shoot.live.k8s-hana.ondemand.com/?orderCode=1234567`
+10. Click on the small arrow next to the name and adjust the URL to include an order code as a query parameter:
+
+> https://get-orders.c-25ddfa3.kyma.shoot.live.k8s-hana.ondemand.com/?orderCode=code-from-your-order
 
 ![Deploy](./images/32.png)
 
