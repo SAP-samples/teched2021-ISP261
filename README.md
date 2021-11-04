@@ -23,7 +23,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 ## Exercises
 
-- [Welcome to ISP261](./prerequisites-isp261.pdf)
+- [Introduction](./prerequisites-isp261.pdf)
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Connecting CCv2 to Kyma](exercises/ex1/)
 
