@@ -28,7 +28,7 @@ In this step, you will create a Formation at the Global account level of your SA
 
 ![Register Formation](./images/4-create-formation.png)
 
-1. Provide a `Name`, choose your `Subaccount` where the Kyma runtime is enabled and select the `System` name you created in the earlier step. Click on `Create`.
+2. Provide a `Name`, choose your `Subaccount` where the Kyma runtime is enabled and select the `System` name you created in the earlier step. Click on `Create`.
 
 ![Formation Details](./images/5-formation-details.png)
 
