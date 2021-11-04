@@ -1,12 +1,12 @@
 # Exercise 3 - Implementing Extension Scenario 1: Functions
 
-In this exercise you will implement the first extension scenario as mentioned in Getting Started.
+In this exercise you will implement the first extension scenario for JonDoe electronics, namely a Function for caching orders and a Function for retrieving orders.
 
-# Exercise 3.1 - Deploy the Redis cache
+# Exercise 3.1 - Deploy a Redis Cache
 
-As a first step, you will deploy the Redis cache in your Kyma runtime.
+As a first step, let's start with deploying a Redis cache in the Kyma runtime.
 
-1. Copy the deployment file below and store it in a file called `redis-deployment.yaml` in your computer.
+1. Copy the code below and store it in a file called `redis-deployment.yaml` in your computer.
 
 **_redis-deployment.yaml_**
 
@@ -87,6 +87,10 @@ spec:
               memory: 256Mi
 ```
 
+This code contains the necessary K8s resources like Deployment, Service and Secret to make Redis available in our Kyma runtime.
+
+You can read more on the main Kubernetes concepts [here](https://kubernetes.io/docs/concepts/).
+
 2. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment.
 
 ![Select Namespace](./images/1.png)
@@ -95,15 +99,17 @@ spec:
 
 ![Deploy Workload](./images/2.png)
 
-4. Select or drop the `redis-deployment.yaml` file into the box and click `Deploy`.
+4. Browse or drop the `redis-deployment.yaml` file you created earlier into the box and click `Deploy`.
 
 ![Deploy Redis](./images/3.png)
 
-5. Back in the `Overview` page, you should now see `2/2` successful Deployments and Pods. This means the Redis cache was successfully deployed and is ready to be used.
+5. Back in the `Overview` page, you should now see `2/2` successful `Deployments` and `Pods`. This means the Redis cache was successfully deployed and is ready to be connected to.
 
 ![Check Deployment](./images/4.png)
 
-# Exercise 3.2 - Deploy your first Function
+You can also see all the deployed resources under the `Services` `Pods` `Deployments` and `Secrets` sections.
+
+# Exercise 3.2 - Deploy Your First Function
 
 With a Redis cache in place, you can now start to implement the Function that will listen for events from CCv2 and place orders in the cache.
 
@@ -111,19 +117,29 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 ![Check Deployment](./images/5.png)
 
-2. Give your new Function a new name like `cache-orders` and click `Create`
+2. Give your new Function a new name like `cache-orders` and click `Create`. Leave the default runtime as `Node.js 14`.
 
 ![Name Function](./images/6.png)
 
-3. Wait until the Function turns into a `Running` status.
+3. Wait until the Function turns from `Building` to `Deploying` and into a `Running` status as depicted below.
+
+> Status 1: Building
 
 ![Name Function](./images/7.png)
+
+> Status 2: Deploying
+
 ![Name Function](./images/8.png)
+
+> Status 3: Running
+
 ![Name Function](./images/9.png)
 
-# Exercise 3.3 - Subscribe the Function to Events and APIs
+In the Source Code you can now probably only see a skeleton main function. This function is very important as it will be called with any event that we have subscribed to from CCv2!
 
-1. In your Function view, go to the `Configuration` tab. There you should see the options to create Service Bindings and Event Subscriptions.
+# Exercise 3.3 - Subscribe The Function To Events And Bind To APIs
+
+1. In the `Function` view, go to the `Configuration` tab. Under this tab the buttons to create `Service Bindings` and `Event Subscriptions` reside.
 
 ![APIs and Events](./images/10.png)
 
@@ -135,19 +151,21 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 ![Events success](./images/12.png)
 
-4. Do the same for Service Bindings, select the already created `CCv2 API Service Instance` and click Create.
+4. Doing the same for Service Bindings, select the already created `CCv2 API Service Instance` and click Create.
 
 ![API binding](./images/13.png)
 
-5. If the API Binding is successful, you should see it under the Service Bindings list.
+5. If the API Binding is successful, you should see it under the Service Bindings list as depicted below.
 
 ![Events success](./images/14.png)
 
+As you can see in the image above, this binding to the OCC API will inject some environment variables into your Function so you can make the API calls back to CCv2!
+
 # Exercise 3.4 - Test out the connection
 
-While the function you deployed does not currently do much it still provides a useful functionality - it lets you know if the Kyma-CCv2 connection is working correctly. Let's test it.
+While the function you deployed does not currently do much, it still provides a very useful functionality - it lets you know if the Kyma-CCv2 connection is working correctly. Let's test it.
 
-1. Add the following line of code inside your Function and click `Save` on the top-right:
+1. Add the following line of code inside your Function and click `Save`.
 
 ```js
 module.exports = {
@@ -158,54 +176,61 @@ module.exports = {
 };
 ```
 
-We will be looking for this greeting when we trigger an Order Created event from CCv2.
+We will be looking for this `Hello World` greeting when we trigger an Order Created event from CCv2.
 
-2. Once your new Function is deployed, go to your CCv2 Storefront and create an account.
+2. Once your new Function is deployed (remember: we're looking for a `Running` status) go to your CCv2 Storefront and create an account.
 
 ![Spartacus Register](./images/15.png)
 
-3. Place an order on any product of your choice.
+3. Once registered, you can place an order on any product of your choice. And don't worry, you don't need to spend any money - this one is on us 😊 We like to use **Card No: 4242424242424242 | Exp: 04/24 | CVC: 424**
 
-_Note: You can use any Credit Card number/expiration/cvc combination to place the order i.e: `1234123412341234, 04/24, 123`_
+> Choose Product.
 
 ![Product Order](./images/17.png)
+
+> Add to Cart.
+
 ![Product Order](./images/18.png)
+
+> Follow Checkout.
+
 ![Product Order](./images/19.png)
+
+> Get Order Confirmation.
+
 ![Product Order](./images/20.png)
 
 4. Back in the Kyma runtime, go in the `Pods` tab and select the `... > Show Logs` for the `cache-orders` Pod. If the connection setup and Event Subscription is successful, CCv2 has triggered and event when the order was created.
 
 ![Spartacus Register](./images/16.png)
 
-_Note: We will soon look at another way we can trace the logs without peeking into the Pod!_
+_Note: In the last exercise you will learn another way to trace logs without peeking into the Pod!_
 
-5. In the Logs you should look for and see a `Hello World` message persisted when the order was created. This confirms the connection is successful.
+5. In the log output you should now see a `Hello World` message persisted when the order was created. This confirms the connection is successful and events are coming through. Nice!
 
 ![Product Order](./images/21.png)
 
 # Exercise 3.5 - Configure your Function resources
 
-Kyma gives you the opportunity to configure your Function resources and match them accordingly with the expected load of your service. Let's have a look at the options and upscale the deployed Function.
+Kyma gives you the opportunity to configure your Function resources according to the expected load of your service. Let's have a look at the options provided to us and scale the deployed Function.
 
 1. In your Function view, go to the `Resources` tab and click the `Edit Configuration` button located on the top-right.
 
 ![Product Order](./images/22.png)
 
-2. Set the `Maximum replicas` to 3 and `Build job profile` to M. This will make our Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change.
-
-_Note: You can play around with Kyma pricing based on usage on [this calculator](https://estimator-don4txf2p3.dispatcher.ap1.hana.ondemand.com/index.html)_
+2. Set the `Maximum replicas` to 3 and `Build job profile` to M. This will make the Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change. **Tip**: If you want to have X replicas available at all times, set the Minimum replica number to X!
 
 ![Product Order](./images/23.png)
 
+_You can play around with Kyma pricing based on usage on [this calculator](https://estimator-don4txf2p3.dispatcher.ap1.hana.ondemand.com/index.html)._
+
 Now, the stage is set to continue implementing the extension scenario.
 
-# Exercise 3.6 - Implement the rest of your Function
+# Exercise 3.6 - Implement The Rest of Your Function
 
-The next step to the implementation is connecting the newly created Function with the deployed Redis cache. Let's start by adding the necessary code.
+The next step in our implementation is connecting the newly created Function with the deployed Redis cache. Let's start by adding the necessary code.
 
-1. The first step is to add dependencies to external libraries
-
-In the `Code` tab, you can find the `Dependencies` submenu. Add the following dependencies to the dependency object:
+1. The first step is adding the necessary dependencies to your Function. In the `Code` tab, you can find the `Dependencies` submenu. Add the following dependencies:
 
 ```json
 {
@@ -217,11 +242,11 @@ In the `Code` tab, you can find the `Dependencies` submenu. Add the following de
 }
 ```
 
-The final code should look similar to:
+Your code should now look similar to:
 
 ![Dependencies](./images/26.png)
 
-Now let's import the libraries in our code:
+2. Next, let's import these libraries for use. Add the code below to the Function:
 
 ```js
 const axios = require("axios");
@@ -231,7 +256,7 @@ const hredis = require("handy-redis");
 We will be using `axios` for making an HTTP request back to CCv2 and `hredis` client to connect to the newly deployed Redis cache.
 Also, since we will be making external HTTP calls in our main function, make sure to add the keyword `async`.
 
-The final version should now look like this:
+The final version should look similar to this:
 
 ```js
 const axios = require("axios");
@@ -245,7 +270,7 @@ module.exports = {
 };
 ```
 
-2. The next step is making use of the Redis client to connect to the cache. Add this code right under the imports:
+3. The next step is bootstrapping the Redis client that will help connect to the cache. Add this code right under your imports:
 
 ```js
 const client = hredis.createNodeRedisClient({
@@ -255,7 +280,7 @@ const client = hredis.createNodeRedisClient({
 });
 ```
 
-As you can see, we are making use of three environment variables to connect to the cache. To add these variables click on `Edit Envionment Variables` in the bottom panel.
+As you can see, we are making use of three environment variables to connect to the cache. But these environment variables are not magical, they come from somewhere, and that somewhere is us. To add these variables click on `Edit Envionment Variables` in the bottom panel.
 
 ![Edit Env](./images/25.png)
 
@@ -270,21 +295,19 @@ REDIS_HOST: redis.your_namespace_name.svc.cluster.local
 
 ![Edit Env](./images/24.png)
 
-_Don't forge to save the changes!_
+**Don't forget to save the changes!**
 
-3. To test out that the connection with Redis is successful, let's try to store some details about the order in the cache. Inside the `main` exported function, add the following code:
+4. To test out that the connection with Redis is successful, let's try to store some details about received order events in the cache. Inside the `main` exported function, add the following code:
 
 ```js
 const orderCode = event.data.orderCode;
-
 console.log("Received orderCode: ", orderCode);
 
 const isCached = cacheOrder(orderCode, orderValue, client);
-
 console.log("Status of caching:", isCached);
 ```
 
-And outside the `main` function, create a new function called cacheOrder as shown below:
+And outside the `main` function, create a new function called `cacheOrder` as shown below:
 
 ```js
 async function cacheOrder(orderCode) {
@@ -293,6 +316,7 @@ async function cacheOrder(orderCode) {
   console.log("Caching data to redis for orderCode: ", orderCode);
 
   return await client.hmset(
+    // Store in Redis an entry with key: orderCode and values
     orderCode,
     ["orderCode", orderCode],
     ["Date", orderDate]
@@ -302,62 +326,58 @@ async function cacheOrder(orderCode) {
 
 Save the code and wait for it to be in a `Running` state again before testing.
 
-4. Time for another test! Let's create another order from CCv2 and look at the logged messages in the Pod console.
-
-If everything is successful, you should see the following logs in your Pod:
+5. Time for another test! Let's create another order from CCv2 and look at the logged messages inside the Pod console. If everything is successful, you should see the following logs in your Pod:
 
 ![Success](./images/27.png)
 
-5. The next step to our implementation is making a callback HTTP request to our CCv2 tenant. We can get the URL of the CCv2 tenant through an environment variable that is injected in our code from the `CC OCC Commerce Webservices v2` service binding.
+6. Perfect! Time to step it up. Next in our implementation is making a callback HTTP request to the CCv2 tenant. You can get the URL of the CCv2 tenant through an environment variable that is injected in our code from the `CC OCC Commerce Webservices v2` service binding you completed earlier.
 
-Copy the full key name of the environment variable ending with `GATEWAY_URL` (not the value).
+Copy the full key name of the environment variable ending with `GATEWAY_URL` (Careful: you need the name, NOT the value).
 
 ![Get CCv2 URL](./images/28.png)
 
-Then, add this code section right below your imports and replace the with the URL you copied earlier.
+Then, add this code section right below your imports and replace `<REPLACE WITH GATEWAY_URL>` with the URL you copied earlier.
 
 ```js
 const COMM_GATEWAY_URL = process.env["<REPLACE WITH GATEWAY_URL>"];
 ```
 
-6. Now that we have the URL, let's implement the callback.
-
-Add this function at the end of your code that implements the callback request:
+7. Now that you have access to the CCv2 URL, let's implement the callback. Add this function at the end of your code:
 
 ```js
 async function getOrderDetails(orderCode) {
-  const ordersUrl = `${COMM_GATEWAY_URL}/${process.env.SITE}/orders/${orderCode}`;
+  const ordersUrl = `${COMM_GATEWAY_URL}/${process.env.SITE}/orders/${orderCode}`; // Construct the correct endpoint
   console.log(
-    "Getting ordering details via: %s",
+    "Getting ordering details via:",
     ordersUrl,
     " for orderCode: ",
     orderCode
   );
-  const response = await axios.get(ordersUrl);
+
+  const response = await axios.get(ordersUrl); // GET request to CCv2 tenant Orders endpoint
   console.log(JSON.stringify(response.data, null, 2));
+
   return response.data;
 }
 ```
 
-Now let's use this function in our `main` function and callback CCv2 before storing the value in the cache.
+You can explore the CCv2 OCC API endpoints also in this [link](https://api.sap.com/api/commerce_services/resource).
 
-Your main function should look like this:
+8. Let's use the `getOrderDetails` function in the `main` function and callback CCv2 before storing the value in the cache. Your main function should look like this:
 
 ```js
   main: async function (event, context) {
-   const orderCode = event.data.orderCode;
-   const response = await getOrderDetails(orderCode);
-   const orderValue = response.totalPriceWithTax.value;
+   const orderCode = event.data.orderCode; // Get order code from the event
+   const response = await getOrderDetails(orderCode); // Callback to CCv2 and receive extra details
+   const orderValue = response.totalPriceWithTax.value; // Extract the price of the order
 
   console.log("Received order value of: ", orderValue, " for orderCode: ", orderCode);
-  const isCached = await cacheOrder(orderCode, orderValue, client);
+  const isCached = await cacheOrder(orderCode, orderValue, client); // Cache data in Redis
   console.log("Status of caching:", isCached);
   }
 ```
 
-7. Time for the last test! Create a new order in CCv2 and take a look at the logs.
-
-If the code of your Function looks similar to this:
+9. Well done! Time for the last test. Let's create a new order in CCv2 and take a look at the Pod logs. If the code of your Function looks similar to this:
 
 ```js
 const axios = require("axios");
@@ -393,6 +413,7 @@ module.exports = {
 async function cacheOrder(orderCode, orderValue) {
   const orderDate = new Date();
   console.log("Caching data to redis for orderCode: ", orderCode);
+
   return await client.hmset(
     orderCode,
     ["orderCode", orderCode],
@@ -409,8 +430,10 @@ async function getOrderDetails(orderCode) {
     " for orderCode: ",
     orderCode
   );
+
   const response = await axios.get(ordersUrl);
   console.log(JSON.stringify(response.data, null, 2));
+
   return response.data;
 }
 ```
@@ -419,17 +442,15 @@ The logs of your Pod should end with these messages:
 
 ![Logs](./images/29.png)
 
-If you made it until now without any issues, congratulations!
+# Exercise 3.7 - Implement a Reading API
 
-# Exercise 3.7 - Implement a reading API
-
-The next step of this excercise is to deploy an API that will allow us to read values stored in the Cache from outside Kyma. This will enable any third-party applications to make use of the data stored.
+Woah, that was intense! But this exercise is not over yet. The next step and final step is to deploy an API that will allow us to read values stored in the Cache from customers via a public API.
 
 1. Create another Function called `get-orders` from the Kyma dashboard as demonstrated in the last exercise.
 
 ![Get orders](./images/30.png)
 
-2. Add the following dependencies to the Function
+2. Add the following dependencies:
 
 ```json
  "dependencies": {
@@ -438,7 +459,7 @@ The next step of this excercise is to deploy an API that will allow us to read v
   }
 ```
 
-3. Add the following environment variables
+3. Then, include these environment variables:
 
 ```
 REDIS_PORT: 6379
@@ -446,7 +467,7 @@ REDIS_PASSWORD: kPppOZp2hC
 REDIS_HOST: redis.your_namespace_name.svc.cluster.local
 ```
 
-4. Import the Redis libraries and connect to the cache by adding this code:
+4. Now it's time to import the Redis libraries and connect to the cache by adding just like below:
 
 ```js
 const hredis = require("handy-redis");
@@ -458,26 +479,26 @@ const client = hredis.createNodeRedisClient({
 });
 ```
 
-5. Create a function that will read data from the Cache given an order code as below:
+5. Great! The next step is to create a function that will read data from the Cache whenever it is given an order code:
 
 ```js
 async function processGetRequest(orderCode) {
   if (orderCode !== undefined) {
     console.log("getting order from cache: ", orderCode);
-    return client.hgetall(orderCode);
+    return client.hgetall(orderCode); // Get data from Redis with the given orderCode key
   } else {
     throw "No orderCode received!";
   }
 }
 ```
 
-6. Implement the main function that uses the function written in the earlier step:
+6. Finally, let's wrap-up the main function. It will use the `processGetRequest` written in the earlier step as shown:
 
 ```js
 try {
-  const orderCode = event.extensions.request.query.orderCode;
-  let result = await processGetRequest(orderCode);
-  return result ? result : { error: "orderCode was not found" };
+  const orderCode = event.extensions.request.query.orderCode; // Get order code
+  let result = await processGetRequest(orderCode); // Get entry from Redis
+  return result ? result : { error: "orderCode was not found" }; // Return result to user
 } catch (err) {
   console.log("an error occurred...", err);
   event.extensions.response.status(500).json({ error: err });
@@ -486,7 +507,7 @@ try {
 
 Now it's time to save the new code and wait for it to redeploy!
 
-7. In order to call this new API from the outside world we need to configure a Kyma CRD called APIRule:
+7. In order to access and communicate with the new API from the outside world we need to configure a Kyma CRD called APIRule:
 
 _*get-order.yaml*_
 
@@ -511,6 +532,7 @@ spec:
 ```
 
 Copy this code and store it in a file called `get-order.yaml`.
+
 [More information on Kyma APIRule.](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule)
 
 8. Back in the `Overview` section of the Kyma dashboard, select `Deploy new workload > Upload YAML` and drop the `get-order.yaml` file. Click `Deploy`.
@@ -523,7 +545,7 @@ Copy this code and store it in a file called `get-order.yaml`.
 
 ![Deploy](./images/32.png)
 
-11. Check the response! If correctly configured you should now see the details of the order
+11. Check the response! If everything is correctly configured you should now see the details of the order.
 
 ![Order detals](./images/33.png)
 
