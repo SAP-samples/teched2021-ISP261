@@ -551,4 +551,4 @@ Copy this code and store it in a file called `get-order.yaml`.
 
 Hooray! You've successfully completed [Exercise 3 - Implementing Extension Scenario 1: Function](#exercise-3---implementing-extension-scenario-1:-function).
 
-Continue to [Exercise 4 - Implementing Extension Scenario 2: Microservice](../ex4/).
+Continue to [Exercise 4 - Implementing Extension Scenario 2: Microservice](../ex4/README.MD).

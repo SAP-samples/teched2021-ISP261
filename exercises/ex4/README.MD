@@ -524,4 +524,4 @@ app.listen(PORT, () => {
 
 Hooray! You've successfully completed [Exercise 4 - Implementing Extension Scenario 2: Microservice](#exercise-4---implementing-extension-scenario-2:-microservice).
 
-Continue to [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](../ex5/README.md).
+Continue to [(Bonus) Exercise 5 - Monitoring with Kyma built-in tools](../ex5/README.MD).
