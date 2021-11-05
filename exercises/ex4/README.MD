@@ -508,15 +508,15 @@ app.listen(PORT, () => {
 
 2. Test the endpoints!
 
--> `/average` - based on the products you bought, you should see the average price of both.
+`/average` - based on the products you bought, you should see the average price of both.
 
 ![Average](./images/10.png)
 
--> `/highest` - based on the products you bought, you should see the highest price.
+`/highest` - based on the products you bought, you should see the highest price.
 
 ![Highest](./images/11.png)
 
--> `/lowest` - based on the products you bought, you should see the lowest price.
+`/lowest` - based on the products you bought, you should see the lowest price.
 
 ![Lowest](./images/12.png)
 
