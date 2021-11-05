@@ -1,4 +1,4 @@
-# Exercise 1 - Connect Kyma to CCv2
+# Exercise 1 - Connect Kyma To CCv2
 
 In this exercise you will create a connection between CCv2 and SAP BTP, Kyma runtime. With this connection in place you can start subscribing to events and consuming APIs coming from CCv2.
 
@@ -32,7 +32,7 @@ In this step, you will create a Formation at the Global account level of your SA
 
 ![Formation Details](./images/5-formation-details.png)
 
-## Exercise 1.3 Pair an application
+## Exercise 1.3 Pair an Application
 
 The pairing process will establish bidirectional trust between your CCv2 application and the SAP Kyma runtime. Once the pairing is complete, the registration of APIs and business events can be performed without dealing with explicit authorizations.
 
@@ -46,7 +46,7 @@ The pairing process will establish bidirectional trust between your CCv2 applica
 
 **Note**: If you are sharing the CCv2 tenant with another session participant, make sure to add your own name in the `Destination's ID` field.
 
-## Exercise 1.4 Check connection
+## Exercise 1.4 Check Connection
 
 Well done! You successfully completed the initial pairing process between CCv2 and Kyma. If everything is running smoothly, you should see the following pages on your own CCv2 Backoffice and BTP systems.
 

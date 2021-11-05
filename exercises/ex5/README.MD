@@ -1,10 +1,10 @@
-# (Bonus) Exercise 5 - Monitoring with Kyma built-in tools
+# (Bonus) Exercise 5 - Monitoring With Kyma Built-in Tools
 
 As a bonus, self-service exercise, you will quickly go through the monitoring tools that Kyma provides like Grafana, Prometheus and Loki.
 
 **This is not a guided exercise, so take your time and explore the variety of dashboards offered by Grafana inside the Kyma dashboard.**
 
-# Exercise 5.1 - Open the monitoring tools
+# Exercise 5.1 - Open The Monitoring Tools
 
 Before jumping into the dashboards, let's have a quick introduction of Grafana, Prometheus and Loki.
 
@@ -26,7 +26,7 @@ You can read more on Prometheus [here](https://prometheus.io/docs/prometheus/lat
 
 ![Monitoring tools](./images/1.png)
 
-# Exercise 5.2 - Watch logs in Grafana and Loki
+# Exercise 5.2 - Watch Logs In Grafana And Loki
 
 Clicking on the `Logs` tab will send you inside the Grafana Loki dashboard.
 
@@ -40,7 +40,7 @@ As an example depicted below, you can find the logs coming from the `cache-order
 
 Feel free to explore Loki further in your own personal Kyma dashboard!
 
-# Exercise 5.3 - Visualize metrics in Grafana and Prometheus
+# Exercise 5.3 - Visualize Metrics In Grafana And Prometheus
 
 Clicking on the `Metrics` tab will send you into the main Grafana dashboard.
 

@@ -14,7 +14,7 @@ JohnDoe Electronics is an e-commerce business selling electronic appliances to c
 
 In the upcoming exercises, you will be implementing these scenarios using the Kyma runtime for extending CCv2.
 
-## Prepare the environment
+## Prepare The Environment
 
 Before getting started with the exercises you have to get access to the following systems:
 
@@ -32,7 +32,7 @@ Before getting started with the exercises you have to get access to the followin
 | Tenant 7    | https://jsapps.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/backoffice |
 | Tenant 8    | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice |
 
-## Explore the systems
+## Explore The Systems
 
 Finally, it's helpful to have a first look at the main dashboards you'll be using in the following exercises, so please prepare and keep the tabs open on the side:
 
