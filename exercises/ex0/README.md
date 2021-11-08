@@ -32,6 +32,8 @@ Before getting started with the exercises you have to get access to the followin
 | Tenant 7    | https://jsapps.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/backoffice |
 | Tenant 8    | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice |
 
+**Note**: We will distribute the credentials for each tenant during the workshop.
+
 ## Explore The Systems
 
 Finally, it's helpful to have a first look at the main dashboards you'll be using in the following exercises, so please prepare and keep the tabs open on the side:
