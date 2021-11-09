@@ -135,7 +135,7 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 In the Source Code you can now probably only a main function containing some skeleton code. This function is very important as it will be triggered by any event that we have subscribed to from CCv2!
 
-# Exercise 3.3 - Subscribe The Function To Events And Bind To APIs
+# Exercise 3.3 - Subscribe The Function To Events and Bind To APIs
 
 1. In the `Function` view, go to the `Configuration` tab. Under this tab the buttons to create `Service Bindings` and `Event Subscriptions` reside.
 
@@ -159,7 +159,7 @@ In the Source Code you can now probably only a main function containing some ske
 
 As you can see in the image above, this binding to the OCC API will inject some environment variables into your Function so you can make the API calls back to CCv2!
 
-# Exercise 3.4 - Test out the connection
+# Exercise 3.4 - Test Out The Connection
 
 While the function you deployed does not currently do much, it still provides a very useful functionality - it lets you know if the Kyma-CCv2 connection is working correctly. Let's test it.
 
@@ -208,7 +208,7 @@ _Note: In the last exercise you will learn another way to trace logs without pee
 
 ![Product Order](./images/21.png)
 
-# Exercise 3.5 - Configure your Function resources
+# Exercise 3.5 - Configure Your Function Resources
 
 Kyma gives you the opportunity to configure your Function resources according to the expected load of your service. Let's have a look at the options provided and scale the deployed Function.
 
