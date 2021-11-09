@@ -2,7 +2,7 @@
 
 In this second exercise, you will explore the events and APIs exposed from the CCv2 tenant and follow the necessary steps to start using them.
 
-## Exercise 2.1 Bind CCv2 To a Namespace
+## Exercise 2.1 - Bind CCv2 To a Namespace
 
 The very first thing you need to do is bind the CCv2 application to the Kyma namespace that will contain all your extensions. This will allow the APIs and Events of CCv2 to be used within the namespace.
 
@@ -23,7 +23,7 @@ The very first thing you need to do is bind the CCv2 application to the Kyma nam
 
 ![Events and Services](./images/4.png)
 
-## Exercise 2.2 Create The Events Service Instance
+## Exercise 2.2 - Create The Events Service Instance
 
 For the extension scenarios discussed earlier, you will need to keep track of all orders coming from CCv2. This can be done via a `Subscription` to the `orderCreated` event. But before you create the event subscription, you need to create a service instance from the exposed Events.
 
@@ -45,7 +45,7 @@ For the extension scenarios discussed earlier, you will need to keep track of al
 
 You will then be landed in the newly created service instance, now ready to use.
 
-## Exercise 2.3 Create The API Service Instance
+## Exercise 2.3 - Create The API Service Instance
 
 For the extension scenarios you also need a CCv2 API that allows you to get additional order details following an event trigger. In this step you will subscribe to the `OCC API` services exposed from CCv2 that gives you access to those endpoints.
 
@@ -57,7 +57,7 @@ For the extension scenarios you also need a CCv2 API that allows you to get addi
 
 ![Create API service](./images/9.png)
 
-## Exercise 2.4 View The Service Instances
+## Exercise 2.4 - View The Service Instances
 
 In this step you will view the Events and the OCC Webservices service instances created in the previous two steps.
 
