@@ -2,21 +2,9 @@
 
 In this section, you will have a look at the extension scenarios that you'll be implementing during the workshop and get access to the systems that will enable the upcoming exercises.
 
-## Extension Scenario
-
-JohnDoe Electronics is an e-commerce business selling electronic appliances to customers all around the world. They are using SAP Commerce Cloud and all the features it has to offer to give customers the best overall experience. As their business is growing, they have some ideas on how to improve their online services and would like to explore and implement some extension options on their CCv2 platform. JohnDoe would like to implement the following improvements on their system:
-
-1. Store all of their orders in a highly-available and peformant store like Redis - you will learn how to deploy a Function, Redis cache and connect Kyma with CCv2 Events and APIs.
-2. Implement a customer-facing API that gives users information about their order - you will learn how to use a Kyma Function as an API.
-3. Implement an API for the statistics team that retrieves common metrics - you will learn how to build and deploy an ExpressJS application in Kyma as a microservice.
-
-![scenario](./images/scenario.png)
-
-In the upcoming exercises, you will be implementing these scenarios using the Kyma runtime for extending CCv2.
-
 ## Prepare The Environment
 
-Before getting started with the exercises you have to get access to the following systems:
+Before getting started with the exercises and extension scenario you have to get access to the following systems:
 
 1. **SAP BTP, Kyma runtime free trial** - As part of the prerequisites, it is expected that every listener already has access to a free trial SAP BTP account and enabled the Kyma runtime.
 2. **CCv2 tenant** - A list of provisioned tenants is shown below and will be distributed to the listeners based on attendance during the live session.
@@ -33,6 +21,18 @@ Before getting started with the exercises you have to get access to the followin
 | Tenant 8    | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice |
 
 **Note**: We will distribute the credentials for each tenant during the workshop.
+
+## Extension Scenario
+
+JohnDoe Electronics is an e-commerce business selling electronic appliances to customers all around the world. They are using SAP Commerce Cloud and all the features it has to offer to give customers the best overall experience. As their business is growing, they have some ideas on how to improve their online services and would like to explore and implement some extension options on their CCv2 platform. JohnDoe would like to implement the following improvements on their system:
+
+1. Store all of their orders in a highly-available and peformant store like Redis - you will learn how to deploy a Function, Redis cache and connect Kyma with CCv2 Events and APIs.
+2. Implement a customer-facing API that gives users information about their order - you will learn how to use a Kyma Function as an API.
+3. Implement an API for the statistics team that retrieves common metrics - you will learn how to build and deploy an ExpressJS application in Kyma as a microservice.
+
+![scenario](./images/scenario.png)
+
+In the upcoming exercises, you will be implementing these scenarios using the Kyma runtime for extending CCv2.
 
 ## Explore The Systems
 
