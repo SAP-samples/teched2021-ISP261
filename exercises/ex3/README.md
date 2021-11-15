@@ -89,7 +89,7 @@ spec:
 
 This code contains the necessary K8s resources like Deployment, Service and Secret to make Redis available in our Kyma runtime. You can read more on these Kubernetes resources [here](https://kubernetes.io/docs/concepts/).
 
-1. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment. Look for `1 Bound Application` keyword.
+2. In the Kyma runtime, go inside the namespace that is connected to your CCv2 environment. Look for `1 Bound Application` keyword.
 
 ![Select Namespace](./images/1.png)
 
