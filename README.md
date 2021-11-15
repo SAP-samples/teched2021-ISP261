@@ -65,7 +65,7 @@ In this session we will walk you through an overview of how to extend SAP Commer
 
 ## Disclaimer
 
-In order to facilitate the session and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the session will not be recorded and the workshop can only be attended live.
+In order to facilitate the session and complete the exercises in this workshop, a CCv2 tenant is paramount and will be provided by the speakers to all listeners during the session. These CCv2 tenants will be available only for a short duration following the session, and for this reason, the workshop is best attended live the recording might not be relevant in the future.
 
 ## How to obtain support
 
@@ -74,8 +74,6 @@ Support for the content in this repository is available during the actual time o
 ## Contributing
 
 The content of this repository is targeting the session ISP261 - Extend SAP Commerce Cloud Through Cloud Native Functions and Services at SAP TechEd 2021. Only sesson speakers will make contributions to this repository. If you wanna enhance the content of this repository feel free to fork it.
-
-## Futher Reading
 
 ## License
 
