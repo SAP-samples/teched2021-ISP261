@@ -133,7 +133,7 @@ With a Redis cache in place, you can now start to implement the Function that wi
 
 ![Name Function](./images/9.png)
 
-In the Source Code you can now probably only a main function containing some skeleton code. This function is very important as it will be triggered by any event that we have subscribed to from CCv2!
+In the Source Code you can now probably only see a main function containing some skeleton code. This function is very important as it will be triggered by any event that we have subscribed to from CCv2!
 
 # Exercise 3.3 - Subscribe The Function To Events and Bind To APIs
 
