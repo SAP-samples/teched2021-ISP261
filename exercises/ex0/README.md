@@ -20,8 +20,6 @@ Before getting started with the exercises and extension scenario you have to get
 | Tenant 7 | https://jsapps.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/backoffice | admin : 6t374HJ}13.xXKNpgAe}{O,)C |
 | Tenant 8 | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice | admin : bcX8qC>$(c?7c2~Wtk81F4NEb |
 
-**Note**: We will distribute the credentials for each tenant during the workshop.
-
 ## Extension Scenario
 
 JohnDoe Electronics is an e-commerce business selling electronic appliances to customers all around the world. They are using SAP Commerce Cloud and all the features it has to offer to give customers the best overall experience. As their business is growing, they have some ideas on how to improve their online services and would like to explore and implement some extension options on their CCv2 platform. JohnDoe would like to implement the following improvements on their system:
