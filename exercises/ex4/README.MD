@@ -164,7 +164,7 @@ metadata:
   labels:
     app: analytics-microservice
 data:
-  host: redis.development.svc.cluster.local
+  host: redis.your-namespace-name.svc.cluster.local
   port: "6379"
 ```
 
