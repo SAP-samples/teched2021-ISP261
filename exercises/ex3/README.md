@@ -365,13 +365,13 @@ You can explore the CCv2 OCC API endpoints also in this [link](https://api.sap.c
 
 ```js
   main: async function (event, context) {
-   const orderCode = event.data.orderCode; // Get order code from the event
-   const response = await getOrderDetails(orderCode); // Callback to CCv2 and receive extra details
-   const orderValue = response.totalPriceWithTax.value; // Extract the price of the order
+    const orderCode = event.data.orderCode; // Get order code from the event
+    const response = await getOrderDetails(orderCode); // Callback to CCv2 and receive extra details
+    const orderValue = response.totalPriceWithTax.value; // Extract the price of the order
 
-  console.log("Received order value of: ", orderValue, " for orderCode: ", orderCode);
-  const isCached = await cacheOrder(orderCode, orderValue); // Cache data in Redis
-  console.log("Status of caching:", isCached);
+    console.log("Received order value of: ", orderValue, " for orderCode: ", orderCode);
+    const isCached = await cacheOrder(orderCode, orderValue); // TODO: don' forget to change this function to use orderValue aswell!
+    console.log("Status of caching:", isCached);
   }
 ```
 
@@ -380,10 +380,7 @@ You can explore the CCv2 OCC API endpoints also in this [link](https://api.sap.c
 ```js
 const axios = require("axios");
 const hredis = require("handy-redis");
-const COMM_GATEWAY_URL =
-  process.env[
-    "CC_OCC_COMMERCE_WEBSERVICES_V2_F19C9CE4_CFA2_40DE_80C8_C29E47B5EA4C_GATEWAY_URL"
-  ];
+const COMM_GATEWAY_URL = process.env["<YOUR_GATEWAY_URL>"];
 
 const client = hredis.createNodeRedisClient({
   port: process.env["REDIS_PORT"],
@@ -490,7 +487,7 @@ async function processGetRequest(orderCode) {
 }
 ```
 
-6. Finally, let's wrap-up the main function. It will use the `processGetRequest` written in the earlier step as shown:
+6. Finally, let's wrap-up the main function. It will use the `processGetRequest` written in the earlier step as shown, and don't forget to make it `async`!
 
 ```js
 try {
