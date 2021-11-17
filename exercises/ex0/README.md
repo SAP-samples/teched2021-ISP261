@@ -23,13 +23,13 @@ Before getting started with the exercises and extension scenario you have to get
 **Note**: We will distribute the credentials for each tenant during the workshop.
 
 Passwords:
-Tenant 1 with backoffice credentials: admin | ixiDhmYYT=:w:R6H!E2+gv!)P
-Tenant 2 with backoffice credentials: admin | PZNaL!1l86{;FTxMm<kG?bhoM
-Tenant 3 with backoffice credentials: admin | he_0;b4@vM;me[{l.AD1=&kyj
+Tenant 1 with backoffice credentials: admin | ixiDhmYYT=:w:R6H!E2+gv!)P  
+Tenant 2 with backoffice credentials: admin | PZNaL!1l86{;FTxMm<kG?bhoM  
+Tenant 3 with backoffice credentials: admin | he_0;b4@vM;me[{l.AD1=&kyj  
 Tenant 4 with backoffice credentials: admin | 7Jsb[,+eggc&8yqN(ot,k$OT:
 Tenant 5 with backoffice credentials: admin | dATvKq<WVvF30h:$&Q(()fGb,
-Tenant 6 with backoffice credentials: admin | p;Pw5z@fR4@jI]\*3_73gZWVVN
-Tenant 7 with backoffice credentials: admin | 6t374HJ}13.xXKNpgAe}{O,)C
+Tenant 6 with backoffice credentials: admin | p;Pw5z@fR4@jI]\*3_73gZWVVN  
+Tenant 7 with backoffice credentials: admin | 6t374HJ}13.xXKNpgAe}{O,)C  
 Tenant 8 with backoffice credentials: admin | bcX8qC>$(c?7c2~Wtk81F4NEb
 
 ## Extension Scenario
