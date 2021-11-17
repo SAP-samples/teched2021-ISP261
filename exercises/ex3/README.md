@@ -216,7 +216,7 @@ Kyma gives you the opportunity to configure your Function resources according to
 
 ![Product Order](./images/22.png)
 
-2. Set the `Maximum replicas` to 3 and `Build job profile` to M. This will make the Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change. **Tip**: If you want to have X replicas available at all times, set the Minimum replica number to X!
+1. Set the `Maximum replicas` to 3, `Build Job Profile` to normal and `Runtime Profile` to M. This will make the Function autoscale up to 3 replicas in case of high load and make sure the Function is re-built quicker on every code change. **Tip**: If you want to have X replicas available at all times, set the Minimum replica number to X!
 
 ![Product Order](./images/23.png)
 
@@ -301,7 +301,7 @@ REDIS_HOST: redis.your_namespace_name.svc.cluster.local
 const orderCode = event.data.orderCode;
 console.log("Received orderCode: ", orderCode);
 
-const isCached = cacheOrder(orderCode, orderValue, client);
+const isCached = await cacheOrder(orderCode);
 console.log("Status of caching:", isCached);
 ```
 
@@ -370,7 +370,7 @@ You can explore the CCv2 OCC API endpoints also in this [link](https://api.sap.c
    const orderValue = response.totalPriceWithTax.value; // Extract the price of the order
 
   console.log("Received order value of: ", orderValue, " for orderCode: ", orderCode);
-  const isCached = await cacheOrder(orderCode, orderValue, client); // Cache data in Redis
+  const isCached = await cacheOrder(orderCode, orderValue); // Cache data in Redis
   console.log("Status of caching:", isCached);
   }
 ```
@@ -403,7 +403,7 @@ module.exports = {
       " for orderCode: ",
       orderCode
     );
-    const isCached = await cacheOrder(orderCode, orderValue, client);
+    const isCached = await cacheOrder(orderCode, orderValue);
     console.log("Status of caching:", isCached);
   },
 };
@@ -483,7 +483,7 @@ const client = hredis.createNodeRedisClient({
 async function processGetRequest(orderCode) {
   if (orderCode !== undefined) {
     console.log("getting order from cache: ", orderCode);
-    return client.hgetall(orderCode); // Get data from Redis with the given orderCode key
+    return await client.hgetall(orderCode); // Get data from Redis with the given orderCode key
   } else {
     throw "No orderCode received!";
   }
