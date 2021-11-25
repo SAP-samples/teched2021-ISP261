@@ -9,16 +9,16 @@ Before getting started with the exercises and extension scenario you have to get
 1. **SAP BTP, Kyma runtime free trial** - As part of the prerequisites, it is expected that every listener already has access to a free trial SAP BTP account and enabled the Kyma runtime.
 2. **CCv2 tenant** - A list of provisioned tenants is shown below and will be distributed to the listeners based on attendance during the live session.
 
-| Tenant Name | Storefront URL | Backoffice URL | Backoffice Credentials |
-| ----------- | -------------- | -------------- | ---------------------- |
-| Tenant 1 | https://jsapps.cp96avkh5f-techedses1-d2-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d2-public.model-t.cc.commerce.ondemand.com/backoffice | admin : ixiDhmYYT=:w:R6H!E2+gv!)P |
-| Tenant 2 | https://jsapps.cp96avkh5f-techedses1-d3-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d3-public.model-t.cc.commerce.ondemand.com/backoffice | admin : PZNaL!1l86{;FTxMm<kG?bhoM |
-| Tenant 3 | https://jsapps.cp96avkh5f-techedses1-d4-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d4-public.model-t.cc.commerce.ondemand.com/backoffice | admin : he_0;b4@vM;me[{l.AD1=&kyj |
-| Tenant 4 | https://jsapps.cp96avkh5f-techedses1-d5-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d5-public.model-t.cc.commerce.ondemand.com/backoffice | admin : 7Jsb[,+eggc&8yqN(ot,k$OT: |
-| Tenant 5 | https://jsapps.cp96avkh5f-techedses1-d6-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d6-public.model-t.cc.commerce.ondemand.com/backoffice | admin : dATvKq<WVvF30h:$&Q(()fGb, |
-| Tenant 6 | https://jsapps.cp96avkh5f-techedses1-d7-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d7-public.model-t.cc.commerce.ondemand.com/backoffice | admin : p;Pw5z@fR4@jI]*3_73gZWVVN |
-| Tenant 7 | https://jsapps.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/backoffice | admin : 6t374HJ}13.xXKNpgAe}{O,)C |
-| Tenant 8 | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice | admin : bcX8qC>$(c?7c2~Wtk81F4NEb |
+| Tenant Name | Storefront URL                                                                   | Backoffice URL                                                                                 | Backoffice Credentials |
+| ----------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------- |
+| Tenant 1    | https://jsapps.cp96avkh5f-techedses1-d2-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d2-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 2    | https://jsapps.cp96avkh5f-techedses1-d3-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d3-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 3    | https://jsapps.cp96avkh5f-techedses1-d4-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d4-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 4    | https://jsapps.cp96avkh5f-techedses1-d5-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d5-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 5    | https://jsapps.cp96avkh5f-techedses1-d6-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d6-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 6    | https://jsapps.cp96avkh5f-techedses1-d7-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d7-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 7    | https://jsapps.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d8-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
+| Tenant 8    | https://jsapps.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/ | https://backoffice.cp96avkh5f-techedses1-d9-public.model-t.cc.commerce.ondemand.com/backoffice |                        |
 
 ## Extension Scenario
 
