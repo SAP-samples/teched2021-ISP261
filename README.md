@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2021-ISP261)](https://api.reuse.software/info/github.com/SAP-samples/teched2021-ISP261)
+
 # ISP261 - Extend SAP Commerce Cloud Through Cloud Native Functions and Services
 
 ## Description
